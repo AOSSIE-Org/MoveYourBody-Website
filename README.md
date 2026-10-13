@@ -116,7 +116,7 @@ What the landing page presents, taken from the app repository and its contributo
 ├── next.config.ts              # Static export + next-intl plugin
 ├── public/
 │   ├── CNAME                   # Custom domain for GitHub Pages (move.aossie.org)
-│   ├── .well-known/            # assetlinks.json, ai-plugin.json, mcp.json
+│   ├── .well-known/            # assetlinks.json, ai-plugin.json
 │   ├── api/, openapi.json      # Machine-readable project metadata
 │   ├── llms.txt, robots.txt
 │   └── brand/

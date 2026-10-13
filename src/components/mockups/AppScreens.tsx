@@ -160,18 +160,13 @@ export function UnderstandScreen({ active }: ScreenProps) {
   );
 }
 
-const week = [
-  ["M", 3],
-  ["T", 4],
-  ["W", 5],
-  ["T", 6],
-  ["F", 7],
-  ["S", 8],
-] as const;
+const week = [3, 4, 5, 6, 7, 8] as const;
 
 export function SessionScreen({ active, excluded = true }: ScreenProps & { excluded?: boolean }) {
   const t = useTranslations("Mock.session");
   const tx = useTranslations("Exercises");
+  const tp = useTranslations("Features.progress");
+  const days = tp.raw("days") as string[];
   const exercises = [
     ["catCow", "beginner"],
     ["gluteBridge", "beginner"],
@@ -182,8 +177,9 @@ export function SessionScreen({ active, excluded = true }: ScreenProps & { exclu
     <Screen active={active}>
       <div className="flex flex-1 flex-col px-[5cqw] pt-[8cqw]">
         <div className="flex justify-between gap-[1.6cqw]">
-          {week.map(([d, n], i) => {
+          {week.map((n, i) => {
             const today = i === week.length - 1;
+            const d = days[i] ?? "";
             return (
               <div
                 key={n}

@@ -1,3 +1,5 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import { Check } from "lucide-react";
 import { container } from "@/components/container";

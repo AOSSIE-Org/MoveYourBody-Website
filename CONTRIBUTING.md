@@ -17,7 +17,7 @@ If you have questions, feedback, or want to discuss ideas before building:
 ## 🛠️ Getting Started
 
 ### 1. Prerequisites
-- **Node.js**: `v20.9.0` or higher
+- **Node.js**: `v22.0.0` or higher
 - **npm**: `v9` or higher
 
 ### 2. Fork & Clone

@@ -7,7 +7,7 @@ describe('SectionHeading component', () => {
   it('renders eyebrow and title', () => {
     render(<SectionHeading eyebrow="FEATURES" title="Smart Micro-Workouts" />);
     expect(screen.getByText('FEATURES')).toBeDefined();
-    expect(screen.getByText('Smart Micro-Workouts')).toBeDefined();
+    expect(screen.getByRole('heading', { level: 2, name: /Smart Micro-Workouts/i })).toBeDefined();
   });
 
   it('renders subtitle when provided', () => {

@@ -95,15 +95,20 @@ export function LiquidMetalButton({
       roContainer.observe(container);
     }
 
-    const cleanupRenderer = createLiquidMetalRenderer({
-      canvas,
-      stage,
-      button,
-    });
+    let cleanupRenderer: (() => void) | null = null;
+    try {
+      cleanupRenderer = createLiquidMetalRenderer({
+        canvas,
+        stage,
+        button,
+      });
+    } catch (err) {
+      console.warn("LiquidMetalButton: WebGL renderer initialization failed; falling back to CSS", err);
+    }
 
     return () => {
       roContainer?.disconnect();
-      cleanupRenderer();
+      cleanupRenderer?.();
     };
   }, [size, height]);
 

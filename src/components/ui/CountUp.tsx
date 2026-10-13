@@ -16,7 +16,11 @@ export function CountUp({ value, className }: { value: string; className?: strin
   const [progress, setProgress] = useState(1);
 
   useEffect(() => {
-    if (!inView || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!inView) {
+      const id = requestAnimationFrame(() => setProgress(0));
+      return () => cancelAnimationFrame(id);
+    }
     let frame = 0;
     const start = performance.now();
     const tick = (now: number) => {

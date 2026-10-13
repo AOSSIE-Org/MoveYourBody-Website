@@ -1,3 +1,5 @@
+"use client";
+
 import type { CSSProperties } from "react";
 import { useTranslations } from "next-intl";
 import { ArrowUpRight, CloudOff, Cpu, Database, Lock, ShieldCheck, Smartphone, Trash2 } from "lucide-react";

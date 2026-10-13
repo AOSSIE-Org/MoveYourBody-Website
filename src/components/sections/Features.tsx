@@ -241,7 +241,7 @@ function VoiceDemo() {
         </span>
       </div>
 
-      <div key={command} className="space-y-2 text-sm" aria-live="polite">
+      <div key={command} className="space-y-2 text-sm" aria-live={touched ? "polite" : "off"}>
         <p className="ml-auto w-fit rounded-2xl rounded-br-md bg-highlight px-3.5 py-2 font-medium text-highlight-contrast motion-safe:animate-list-in">
           “{t(`commands.${command}`)}”
         </p>

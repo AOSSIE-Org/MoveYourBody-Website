@@ -722,6 +722,8 @@ export function createLiquidMetalRenderer(params: {
 
     if (visible) {
       rafId = requestAnimationFrame(frame);
+    } else {
+      parked = true;
     }
   }
 

@@ -6,20 +6,26 @@ Disallow: /pr-preview/
 # AI crawlers - explicitly allowed
 User-agent: GPTBot
 Allow: /
+Disallow: /pr-preview/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /pr-preview/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /pr-preview/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /pr-preview/
 
 User-agent: CCBot
 Allow: /
+Disallow: /pr-preview/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /pr-preview/
 
 Sitemap: https://move.aossie.org/sitemap.xml

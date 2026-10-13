@@ -1,6 +1,8 @@
+"use client";
+
+import { use } from "react";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import DockNavbar from "@/components/dock/DockNavbar";
 import Hero from "@/components/hero/Hero";
@@ -12,10 +14,9 @@ import OpenSource from "@/components/sections/OpenSource";
 import DownloadCta from "@/components/sections/DownloadCta";
 import SiteFooter from "@/components/sections/SiteFooter";
 
-export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
+export default function Home({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = use(params);
   if (!hasLocale(routing.locales, locale)) notFound();
-  setRequestLocale(locale);
 
   return (
     <>

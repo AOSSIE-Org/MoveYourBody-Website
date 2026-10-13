@@ -26,12 +26,12 @@
 | Category           | Met | Total | Status |
 |--------------------|-----|-------|--------|
 | Basics             | 8   | 8     | 🟢     |
-| Change Control     | 6   | 6     | 🟢     |
+| Change Control     | 5   | 6     | 🟢     |
 | Reporting          | 8   | 8     | 🟢     |
 | Quality            | 11  | 11    | 🟢     |
 | Security           | 9   | 9     | 🟢     |
 | Analysis           | 7   | 7     | 🟢     |
-| **Total**          | **49** | **49** | **100%** |
+| **Total**          | **48** | **49** | **98%** |
 ---
 
 ## 🏗️ Basics
@@ -86,8 +86,8 @@
 
 ### Release Notes
 
-- [x] 🔴 **release_notes** - Each release includes human-readable release notes summarizing major changes. Raw `git log` output is NOT acceptable.
-  - *Evidence URL:* [GitHub Releases](https://github.com/AOSSIE-Org/MoveYourBody-Website/releases)
+- [ ] 🔴 **release_notes** - Each release includes human-readable release notes summarizing major changes. Raw `git log` output is NOT acceptable.
+  - *Status:* Unmet until first formal release with human-readable notes is published on GitHub Releases.
 
 - [~] 🔴 **release_notes_vulns** - Release notes identify every publicly known vulnerability (with CVE) fixed in that release.
   - *Evidence URL:* `[~]` N/A - *Justification (no publicly known vulns / users can't self-update):* Static frontend website with no server state or vulnerabilities published.

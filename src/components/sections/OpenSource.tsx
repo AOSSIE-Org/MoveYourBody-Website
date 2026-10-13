@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { ArrowUpRight, Code, Database, Palette, Star } from "lucide-react";

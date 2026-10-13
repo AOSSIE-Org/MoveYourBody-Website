@@ -12,7 +12,6 @@ describe('PhoneFrame component', () => {
     );
 
     const screenElement = screen.getByTestId('app-screen');
-    expect(screenElement).toBeDefined();
     expect(screenElement.textContent).toBe('Workout Session');
   });
 

@@ -16,12 +16,13 @@ describe('BrandIcon component', () => {
     const { container } = render(<BrandIcon name="discord" className="size-4" />);
     const svg = container.querySelector('svg');
     expect(svg).not.toBeNull();
-    expect(svg?.querySelector('path')?.getAttribute('d')).toBeDefined();
+    expect(svg?.querySelector('path')?.getAttribute('d')).toMatch(/^M/);
   });
 
   it('renders SVG for googlePlay', () => {
     const { container } = render(<BrandIcon name="googlePlay" />);
     const svg = container.querySelector('svg');
     expect(svg).not.toBeNull();
+    expect(svg?.querySelectorAll('path').length).toBeGreaterThan(0);
   });
 });

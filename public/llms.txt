@@ -57,5 +57,4 @@ Next.js 16 (App Router, Turbopack) with React 19 and Tailwind CSS v4, exported a
 - [API Reference](/api/): available endpoints
 - [OpenAPI Spec](/openapi.json): OpenAPI 3.0.1 specification
 - [AI Plugin Manifest](/.well-known/ai-plugin.json): AI plugin manifest
-- [MCP Manifest](/.well-known/mcp.json): Model Context Protocol server configuration
 - [Project Info](/api/info.json): structured project metadata
