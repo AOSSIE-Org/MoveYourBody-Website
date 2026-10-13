@@ -1,0 +1,114 @@
+.stage {
+  --h: var(--liquid-btn-h, 52px);
+  --u: calc(var(--h) / 516);
+  --bh: var(--h);
+  /* The canvas is the stage, so this has to clear the bloom's full reach
+     (~4 sigma) or the halo gets cut off against a visible rectangle. */
+  --pad: calc(900 * var(--u));
+  position: relative;
+  width: max-content;
+  height: max-content;
+  padding: var(--pad);
+  display: grid;
+  place-items: center;
+  touch-action: manipulation;
+}
+
+/* Glass body: translucent so ground reads through unlit parts of the sheet */
+.plate {
+  position: absolute;
+  inset: var(--pad);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.014) 44%, rgba(255, 255, 255, 0) 64%),
+    rgba(10, 12, 10, 0.42);
+  box-shadow:
+    0 calc(var(--h) * 0.08) calc(var(--h) * 0.18) rgba(0, 0, 0, 0.38),
+    0 calc(var(--h) * 0.24) calc(var(--h) * 0.5) rgba(0, 0, 0, 0.28),
+    0 calc(var(--h) * 0.48) calc(var(--h) * 0.96) rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.13),
+    inset 0 calc(var(--h) * -0.02) calc(var(--h) * 0.05) rgba(255, 255, 255, 0.05);
+  transition:
+    box-shadow 0.38s cubic-bezier(0.22, 0.61, 0.36, 1),
+    background 0.38s cubic-bezier(0.22, 0.61, 0.36, 1);
+  pointer-events: none;
+}
+
+/* Deepen plate while metal is lit so bright face keeps its edge */
+.stage[data-hot="true"] .plate {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.105), rgba(255, 255, 255, 0.02) 44%, rgba(255, 255, 255, 0) 64%),
+    rgba(8, 10, 8, 0.5);
+  box-shadow:
+    0 calc(var(--h) * 0.1) calc(var(--h) * 0.22) rgba(0, 0, 0, 0.44),
+    0 calc(var(--h) * 0.32) calc(var(--h) * 0.66) rgba(0, 0, 0, 0.34),
+    0 calc(var(--h) * 0.66) calc(var(--h) * 1.32) rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.17),
+    inset 0 calc(var(--h) * -0.02) calc(var(--h) * 0.05) rgba(255, 255, 255, 0.06);
+}
+
+/* Pressed: button settles onto surface so shadow tightens */
+.stage[data-press="true"] .plate {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.01) 44%, rgba(255, 255, 255, 0) 64%),
+    rgba(7, 9, 7, 0.55);
+  box-shadow:
+    0 calc(var(--h) * 0.04) calc(var(--h) * 0.11) rgba(0, 0, 0, 0.46),
+    0 calc(var(--h) * 0.13) calc(var(--h) * 0.32) rgba(0, 0, 0, 0.36),
+    0 calc(var(--h) * 0.27) calc(var(--h) * 0.62) rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition-duration: 0.1s;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+.btn {
+  position: relative;
+  height: var(--bh);
+  border: 0;
+  background: none;
+  padding: 0 calc(224 * var(--u)) 0 calc(95 * var(--u));
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(112 * var(--u));
+  color: #fff;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: calc(140 * var(--u));
+  line-height: 1;
+  letter-spacing: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  text-decoration: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn:focus-visible {
+  outline: calc(4 * var(--u)) solid rgba(255, 255, 255, 0.55);
+  outline-offset: calc(10 * var(--u));
+}
+
+.ico {
+  width: calc(150 * var(--u));
+  height: calc(150 * var(--u));
+  display: block;
+  flex: none;
+  overflow: visible;
+}
+
+/* Descenders pull the flex box up - nudge back so cap box sits centred */
+.lbl {
+  display: block;
+  transform: translateY(calc(2 * var(--u)));
+}

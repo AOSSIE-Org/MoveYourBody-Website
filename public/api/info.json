@@ -1,20 +1,31 @@
 {
-  "name": "TODO: Project Name (AOSSIE Webpage Starter)",
+  "name": "MoveYourBody",
   "version": "1.0.0",
-  "description": "TODO: Project Description (AOSSIE Webpage Starter)",
-  "repository": "https://github.com/AOSSIE-Org/Template-Repo-NextJS",
-  "documentation": "https://TODO:project.aossie.org/api/",
+  "description": "Privacy-first, open-source fitness app by AOSSIE: personalized 5–7 minute micro-workouts powered by on-device AI and voice control, running fully offline.",
+  "organization": "AOSSIE",
+  "license": "GPL-3.0",
+  "repository": "https://github.com/AOSSIE-Org/MoveYourBody",
+  "websiteRepository": "https://github.com/AOSSIE-Org/MoveYourBody-Website",
   "features": [
-    "Next.js 16 (App Router)",
-    "React 19",
-    "Tailwind CSS v4",
-    "Internationalization (next-intl)",
-    "AI Agent Readiness (LLMs.txt, OpenAPI, MCP)"
+    "Personalized workouts (goals, fitness level, equipment, target body region)",
+    "Short 5–7 minute micro-workout sessions",
+    "Adaptive recommendations from post-workout feedback",
+    "Anti-boredom variety engine",
+    "Safety-aware exercise filtering for injuries",
+    "Offline, on-device AI (quantized all-MiniLM-L6-v2 via ONNX Runtime)",
+    "Voice-controlled workouts",
+    "Smart daily reminders",
+    "Workout statistics and progress tracking",
+    "Custom workout creation, exercise search and body-focus sessions"
+  ],
+  "platforms": [
+    "Android"
   ],
   "links": {
-    "home": "https://TODO:project.aossie.org/",
-    "docs": "https://TODO:project.aossie.org/api/",
-    "openapi": "https://TODO:project.aossie.org/openapi.json",
-    "llms": "https://TODO:project.aossie.org/llms.txt"
+    "home": "https://move.aossie.org/",
+    "playStore": "https://play.google.com/store/apps/details?id=org.aossie.move",
+    "docs": "https://move.aossie.org/api/",
+    "openapi": "https://move.aossie.org/openapi.json",
+    "llms": "https://move.aossie.org/llms.txt"
   }
 }

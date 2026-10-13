@@ -1,18 +1,18 @@
 {
   "schema_version": "v1",
-  "name_for_human": "TODO Project Name (AOSSIE Webpage Starter)",
-  "name_for_model": "todo_project_name (aossie_webpage_starter)",
-  "description_for_human": "TODO Project Description (AOSSIE Webpage Starter)",
-  "description_for_model": "Retrieve settings, theme configuration, and supported locales from the TODO: Project (AOSSIE webpage starter).",
+  "name_for_human": "MoveYourBody",
+  "name_for_model": "moveyourbody",
+  "description_for_human": "Privacy-first, open-source fitness app by AOSSIE with personalized micro-workouts and on-device AI.",
+  "description_for_model": "Retrieve project metadata for MoveYourBody (AOSSIE): features, supported platforms, license, repository and download links for the offline, on-device-AI micro-workout app.",
   "auth": {
     "type": "none"
   },
   "api": {
     "type": "openapi",
-    "url": "https://TODO:project.aossie.org/openapi.json",
+    "url": "https://move.aossie.org/openapi.json",
     "is_user_authenticated": false
   },
-  "logo_url": "https://TODO:project.aossie.org/brand/icons/aossie_logo.svg",
+  "logo_url": "https://move.aossie.org/brand/icons/MoveYourBody_logo.svg",
   "contact_email": "admin@aossie.org",
-  "legal_info_url": "https://TODO:project.aossie.org/legal"
+  "legal_info_url": "https://github.com/AOSSIE-Org/MoveYourBody/blob/main/PRIVACY_POLICY.md"
 }

@@ -1,8 +1,432 @@
 {
   "Home": {
-    "heading": "Aossie Webpage Starter",
-    "metaTitle": "Aossie Webpage Starter - Multi-lingual Next.js 16 Template",
-    "metaDescription": "A starter template for Aossie portals featuring next-intl i18n/l10n and next-themes light/dark theme switcher."
+    "metaTitle": "MoveYourBody - Personalized Micro-Workouts with On-Device AI",
+    "metaDescription": "MoveYourBody is a free, open-source fitness app by AOSSIE. Personalized 5–7 minute workouts that adapt to your goals, equipment and injuries, powered by on-device AI and voice control - fully offline and private."
+  },
+  "Common": {
+    "skipToContent": "Skip to content",
+    "brandMove": "Move",
+    "brandYour": "Your",
+    "brandBody": "Body",
+    "logoAlt": "MoveYourBody logo"
+  },
+  "Navbar": {
+    "primary": "Primary navigation",
+    "home": "MoveYourBody - back to top",
+    "features": "Features",
+    "howItWorks": "How it works",
+    "privacy": "Privacy",
+    "openSource": "Open source",
+    "download": "Download App",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "Hero": {
+    "mottoLine1": "Your Body in <hl>Motion</hl>.",
+    "mottoLine2": "Your <hl>Data</hl> in Control.",
+    "mottoSubtitle": "Personalized 5–7 minute micro-workout sessions running 100% offline.<br></br>Powered by on-device AI and hands-free voice control.",
+    "downloadNow": "Download Now",
+    "downloadFrame": "Download MoveYourBody on Google Play",
+    "heroBand": "PRIVACY-FIRST • ON-DEVICE AI • ZERO USER TRACKING",
+    "ghostWordmark": "MOVE YOUR BODY",
+    "modelAlt": "An athlete stretching, arms raised overhead",
+    "dailyTitle": "Daily Rhythm",
+    "dailyValue": "2–3 sessions a day",
+    "safetyTitle": "Injury-Aware",
+    "safetyValue": "Skips unsafe moves",
+    "poweredBy": "Made By <link>AOSSIE</link>"
+  },
+  "Manifesto": {
+    "eyebrow": "Why MoveYourBody",
+    "lead": "Five minutes. Three moves. Zero servers.",
+    "text": "MoveYourBody builds every session around your goals, your equipment and your body, then learns from how it felt, entirely on your phone.",
+    "marquee": [
+      "Personalized",
+      "Adaptive",
+      "Offline",
+      "Voice-controlled",
+      "Safety-aware",
+      "Open source"
+    ],
+    "stats": {
+      "session": {
+        "value": "5–7",
+        "unit": "min",
+        "label": "per session"
+      },
+      "exercises": {
+        "value": "3",
+        "unit": "",
+        "label": "exercises per session"
+      },
+      "library": {
+        "value": "100+",
+        "unit": "",
+        "label": "exercises to explore"
+      },
+      "servers": {
+        "value": "0",
+        "unit": "",
+        "label": "servers touching your data"
+      }
+    }
+  },
+  "Features": {
+    "eyebrow": "Features",
+    "title": "A personal coach that fits in <hl>five minutes</hl>",
+    "subtitle": "Every session adapts to you: your goals, level, equipment, injuries, even how the last workout felt.",
+    "personalized": {
+      "title": "Personalized workouts",
+      "body": "Sessions built from your goals, fitness level, preferences, available equipment and target body region. Try it:",
+      "goalLabel": "Goal",
+      "regionLabel": "Focus",
+      "equipmentLabel": "Equipment",
+      "goals": {
+        "strength": "Strength",
+        "mobility": "Mobility",
+        "cardio": "Cardio"
+      },
+      "regions": {
+        "upper": "Upper body",
+        "core": "Core",
+        "lower": "Lower body"
+      },
+      "equipment": {
+        "none": "None",
+        "dumbbells": "Dumbbells"
+      },
+      "previewTitle": "Your session",
+      "previewMeta": "3 exercises · {minutes} min",
+      "dose": {
+        "strength": "12 reps",
+        "mobility": "30 s hold",
+        "cardio": "40 s"
+      }
+    },
+    "short": {
+      "title": "Short, focused sessions",
+      "body": "Quick micro-workouts that slot into a busy day. No hour at the gym required.",
+      "unit": "min",
+      "caption": "3 exercises"
+    },
+    "voice": {
+      "title": "Voice-controlled",
+      "body": "Say start, pause, skip or repeat, and hear it confirmed. Your hands stay on the workout, not the phone.",
+      "hint": "Tap a command",
+      "listening": "Listening…",
+      "commands": {
+        "start": "Start",
+        "pause": "Pause",
+        "skip": "Skip",
+        "repeat": "Repeat"
+      },
+      "replies": {
+        "start": "Starting Glute Bridge",
+        "pause": "Paused. Take a breath.",
+        "skip": "Skipping to Bird Dog",
+        "repeat": "Repeating the instructions"
+      }
+    },
+    "adaptive": {
+      "title": "Adapts after every session",
+      "body": "Rate how hard it felt and the next session adjusts difficulty and intensity, gradually rather than all at once.",
+      "question": "How did that feel?",
+      "options": {
+        "easy": "Too easy",
+        "right": "Just right",
+        "hard": "Too hard"
+      },
+      "next": "Next session",
+      "intensity": "Intensity",
+      "results": {
+        "easy": "One step harder",
+        "right": "Holding steady",
+        "hard": "One step easier"
+      }
+    },
+    "safety": {
+      "title": "Safety-aware",
+      "body": "Mention an injury and exercises that could aggravate it are never recommended.",
+      "label": "I have a sore…",
+      "injuries": {
+        "knee": "Knee",
+        "back": "Lower back",
+        "shoulder": "Shoulder"
+      },
+      "excluded": "Excluded",
+      "safe": "Safe"
+    },
+    "variety": {
+      "title": "Never the same session twice",
+      "body": "A variety engine remembers what you did recently and keeps rotating in fresh moves.",
+      "recent": "Done yesterday",
+      "fresh": "Fresh today"
+    },
+    "offline": {
+      "title": "Offline, on-device AI",
+      "body": "Recommendations run on a quantized MiniLM model inside your phone. No cloud round-trips, no waiting.",
+      "badge": "Airplane mode",
+      "model": "all-MiniLM-L6-v2 · ONNX",
+      "requests": "0 network requests"
+    },
+    "progress": {
+      "title": "Progress you can see",
+      "body": "Workout history, duration, calories and streaks, in charts and activity views.",
+      "sample": "Sample week",
+      "days": [
+        "M",
+        "T",
+        "W",
+        "T",
+        "F",
+        "S",
+        "S"
+      ],
+      "stats": {
+        "workouts": "Workouts",
+        "minutes": "Minutes",
+        "calories": "kcal",
+        "streak": "Day streak"
+      }
+    },
+    "more": {
+      "title": "And there’s more",
+      "items": {
+        "reminders": {
+          "title": "Smart daily reminders",
+          "body": "Pick your time and get a daily nudge."
+        },
+        "custom": {
+          "title": "Custom workouts",
+          "body": "Mix your own routines from the library."
+        },
+        "search": {
+          "title": "Exercise search",
+          "body": "Find moves by name, body region or muscle."
+        },
+        "focus": {
+          "title": "Body focus",
+          "body": "Ready-made upper body, lower body and core sessions."
+        }
+      }
+    }
+  },
+  "HowItWorks": {
+    "eyebrow": "How it works",
+    "title": "From a few answers to a plan that <hl>learns you</hl>",
+    "subtitle": "A small AI pipeline that lives on your phone, from onboarding to your next session.",
+    "step": "Step {n}",
+    "steps": {
+      "onboard": {
+        "title": "Tell it about you",
+        "body": "Share your goals, fitness level, equipment and any injuries, or describe them in your own words."
+      },
+      "understand": {
+        "title": "Understood on-device",
+        "body": "A quantized all-MiniLM-L6-v2 sentence transformer turns your words into embeddings and maps them to exercise tags by cosine similarity."
+      },
+      "filter": {
+        "title": "Filtered for safety, ranked for you",
+        "body": "Rule-based filters drop anything that clashes with your injuries or equipment. Scoring ranks what is left, skipping recent repeats."
+      },
+      "move": {
+        "title": "Move, hands-free",
+        "body": "Follow clear animations and timers, and steer the session with your voice."
+      },
+      "adapt": {
+        "title": "Rate it, and it adapts",
+        "body": "Your feedback updates your profile, so the next session lands closer to just right."
+      }
+    }
+  },
+  "Mock": {
+    "onboarding": {
+      "title": "What’s your goal?",
+      "subtitle": "Pick all that apply",
+      "goals": {
+        "strength": "Build strength",
+        "mobility": "Improve mobility",
+        "active": "Stay active",
+        "weight": "Lose weight"
+      },
+      "injuries": "Any injuries?",
+      "knee": "Knee",
+      "back": "Lower back",
+      "continue": "Continue"
+    },
+    "understand": {
+      "title": "Understanding you",
+      "input": "I sit all day and my lower back feels stiff",
+      "tags": {
+        "mobility": "mobility",
+        "lowerBack": "lower back",
+        "posture": "posture",
+        "core": "core"
+      },
+      "model": "all-MiniLM-L6-v2 · on-device"
+    },
+    "session": {
+      "title": "Today’s Session",
+      "subtitle": "3 recommended exercises",
+      "start": "Start Session",
+      "excluded": "Excluded · knee",
+      "levels": {
+        "beginner": "Beginner",
+        "intermediate": "Intermediate",
+        "advanced": "Advanced"
+      }
+    },
+    "workout": {
+      "tag": "Workout",
+      "heard": "“Skip”",
+      "plus": "+10s"
+    },
+    "feedback": {
+      "title": "How did it feel?",
+      "options": {
+        "easy": "Too easy",
+        "right": "Just right",
+        "hard": "Too hard"
+      },
+      "next": "Next session",
+      "adapted": "Tuned to your feedback",
+      "intensity": "Intensity"
+    }
+  },
+  "Exercises": {
+    "pushUps": "Push-ups",
+    "pikePushUps": "Pike Push-ups",
+    "armCircles": "Arm Circles",
+    "dumbbellRow": "Dumbbell Row",
+    "shoulderPress": "Shoulder Press",
+    "bicepCurl": "Bicep Curl",
+    "plank": "Plank Hold",
+    "deadBug": "Dead Bug",
+    "bicycleCrunch": "Bicycle Crunch",
+    "russianTwist": "Russian Twist",
+    "renegadeRow": "Renegade Row",
+    "sideBend": "Dumbbell Side Bend",
+    "squats": "Bodyweight Squats",
+    "gluteBridge": "Glute Bridge",
+    "lunges": "Reverse Lunges",
+    "gobletSquat": "Goblet Squat",
+    "romanianDeadlift": "Romanian Deadlift",
+    "calfRaises": "Calf Raises",
+    "catCow": "Cat-Cow Stretch",
+    "wallAngels": "Wall Angels",
+    "birdDog": "Bird Dog",
+    "hipCircles": "Hip Circles",
+    "worldsGreatest": "World’s Greatest Stretch",
+    "jumpingJacks": "Jumping Jacks",
+    "burpees": "Burpee Jump",
+    "mountainClimbers": "Mountain Climbers",
+    "highKnees": "High Knees",
+    "jumpSquats": "Jump Squats",
+    "skaters": "Skater Hops",
+    "supermanHold": "Superman Hold",
+    "mountainPose": "Mountain Pose (Tadasana)"
+  },
+  "Privacy": {
+    "eyebrow": "Privacy by design",
+    "title": "Your health data <hl>never leaves your phone</hl>",
+    "subtitle": "Goals, injuries, workout history and anything you type are processed and stored on your device. Nothing is uploaded to servers run by the developers.",
+    "points": {
+      "storage": {
+        "title": "Stored locally",
+        "body": "Your profile and history live in an on-device SQLite database."
+      },
+      "ai": {
+        "title": "AI that runs locally",
+        "body": "Embeddings come from an ONNX model bundled with the app."
+      },
+      "ads": {
+        "title": "No ads, no data sales",
+        "body": "Personal information is never sold, rented or shared."
+      },
+      "control": {
+        "title": "Delete it any time",
+        "body": "Clear the app’s storage or uninstall, and it is gone."
+      }
+    },
+    "chips": {
+      "age": "Age",
+      "goals": "Goals",
+      "injuries": "Injuries",
+      "history": "History",
+      "feedback": "Feedback",
+      "notes": "Your notes"
+    },
+    "cloud": "0 bytes to our servers",
+    "device": "Your phone",
+    "policy": "Read the privacy policy"
+  },
+  "OpenSource": {
+    "eyebrow": "Open source",
+    "title": "Built in the open by <hl>AOSSIE</hl>",
+    "subtitle": "MoveYourBody is free software under the GNU GPL v3.0, developed by the AOSSIE community during Google Summer of Code 2026.",
+    "stack": "Tech stack",
+    "waysTitle": "Ways to contribute",
+    "ways": {
+      "code": {
+        "title": "Code",
+        "body": "Flutter UI, Riverpod state management, or the ONNX recommendation pipeline."
+      },
+      "design": {
+        "title": "Design",
+        "body": "Shape the app's screens and flows, and this website."
+      },
+      "data": {
+        "title": "Exercise data",
+        "body": "Grow the offline exercise library and its posture guidance."
+      }
+    },
+    "teamTitle": "The team",
+    "roles": {
+      "maintainer": "Maintainer",
+      "mentor": "Mentor",
+      "contributor": "Contributor"
+    },
+    "contributors": "Contributors",
+    "contributorsAlt": "Avatars of MoveYourBody contributors on GitHub",
+    "star": "Star on GitHub",
+    "guide": "Contributing guide",
+    "discord": "Join the Discord"
+  },
+  "Download": {
+    "eyebrow": "Get the app",
+    "title": "Five minutes is <hl>all it takes</hl>",
+    "subtitle": "Install MoveYourBody from Google Play and start your first personalized session today.",
+    "playTop": "Get it on",
+    "playBottom": "Google Play",
+    "source": "Build from source",
+    "notes": {
+      "free": "Free & open source",
+      "offline": "Works offline",
+      "private": "Private by default"
+    }
+  },
+  "Footer": {
+    "tagline": "Personalized micro-workouts powered by on-device AI. Your body in motion, your data in control.",
+    "product": "Product",
+    "project": "Project",
+    "community": "Community",
+    "links": {
+      "source": "App source code",
+      "website": "Website source",
+      "contributing": "Contributing",
+      "policy": "Privacy policy",
+      "license": "License (GPL-3.0)"
+    },
+    "social": {
+      "discord": "Discord",
+      "telegram": "Telegram",
+      "x": "X (Twitter)",
+      "linkedin": "LinkedIn",
+      "youtube": "YouTube",
+      "github": "GitHub"
+    },
+    "projectBy": "A project by",
+    "copyright": "© {year} AOSSIE. The MoveYourBody app is licensed under GPL-3.0."
   },
   "Error": {
     "title": "Something went wrong",
@@ -21,4 +445,3 @@
     "toggleTheme": "Toggle theme"
   }
 }
-

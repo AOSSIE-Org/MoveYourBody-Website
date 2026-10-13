@@ -1,28 +1,37 @@
 import { NextResponse } from "next/server";
+import { PLAY_STORE_URL, REPO_URL, SITE_URL, WEBSITE_REPO_URL } from "@/config/links";
 
 export const dynamic = "force-static";
 
 export async function GET() {
-  const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://TODO:project.aossie.org";
-  const siteUrl = rawSiteUrl.replace(/\/$/, "");
-
   return NextResponse.json({
-    name: "TODO: Project Name (AOSSIE Webpage Starter)",
+    name: "MoveYourBody",
     version: "1.0.0",
-    description: "TODO: Project Description (AOSSIE Webpage Starter)",
-    repository: "https://github.com/AOSSIE-Org/Template-Repo-NextJS",
+    description:
+      "Privacy-first, open-source fitness app by AOSSIE: personalized 5–7 minute micro-workouts powered by on-device AI and voice control, running fully offline.",
+    organization: "AOSSIE",
+    license: "GPL-3.0",
+    repository: REPO_URL,
+    websiteRepository: WEBSITE_REPO_URL,
     features: [
-      "Next.js 16 (App Router)",
-      "React 19",
-      "Tailwind CSS v4",
-      "Internationalization (next-intl)",
-      "AI Agent Readiness (LLMs.txt, OpenAPI, MCP)"
+      "Personalized workouts (goals, fitness level, equipment, target body region)",
+      "Short 5–7 minute micro-workout sessions",
+      "Adaptive recommendations from post-workout feedback",
+      "Anti-boredom variety engine",
+      "Safety-aware exercise filtering for injuries",
+      "Offline, on-device AI (quantized all-MiniLM-L6-v2 via ONNX Runtime)",
+      "Voice-controlled workouts",
+      "Smart daily reminders",
+      "Workout statistics and progress tracking",
+      "Custom workout creation, exercise search and body-focus sessions",
     ],
+    platforms: ["Android"],
     links: {
-      home: `${siteUrl}/`,
-      docs: `${siteUrl}/api/`,
-      openapi: `${siteUrl}/openapi.json`,
-      llms: `${siteUrl}/llms.txt`
-    }
+      home: `${SITE_URL}/`,
+      playStore: PLAY_STORE_URL,
+      docs: `${SITE_URL}/api/`,
+      openapi: `${SITE_URL}/openapi.json`,
+      llms: `${SITE_URL}/llms.txt`,
+    },
   });
 }
