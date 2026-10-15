@@ -1,22 +1,17 @@
 import type { MetadataRoute } from 'next';
-import { routing } from '../i18n/routing';
+import { routing } from '@/i18n/routing';
+import { SITE_URL } from '@/config/links';
 
 export const dynamic = 'force-static';
 
+/** One entry per locale, each listing its translations. Domain comes from NEXT_PUBLIC_SITE_URL or move.aossie.org. */
 export default function sitemap(): MetadataRoute.Sitemap {
-  /**
-   * INSTRUCTIONS FOR PRODUCTION DOMAIN:
-   * 1. Define the `NEXT_PUBLIC_SITE_URL` environment variable in your hosting environment (e.g. Vercel, Docker).
-   * 2. Replace the fallback domain 'https://TODO:project.aossie.org' below with your project's target production domain.
-   */
-  const rawBaseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://TODO:project.aossie.org';
-  const baseUrl = rawBaseUrl.replace(/\/$/, '');
-
+  const languages = Object.fromEntries(routing.locales.map((locale) => [locale, `${SITE_URL}/${locale}`]));
 
   return routing.locales.map((locale) => ({
-    url: `${baseUrl}/${locale}`,
+    url: `${SITE_URL}/${locale}`,
     changeFrequency: 'monthly',
-    priority: 1,
+    priority: locale === routing.defaultLocale ? 1 : 0.8,
+    alternates: { languages },
   }));
 }
-

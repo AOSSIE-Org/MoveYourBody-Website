@@ -1,47 +1,60 @@
-# TODO: Project Title (AOSSIE Webpage Starter Template)
+# MoveYourBody
 
-TODO: Project Description
-This repository is a high-performance webpage built on **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**. It is pre-configured with **next-intl** for internationalization (i18n) and **next-themes** for semantic dark/light theme tokens.
+> MoveYourBody is a free, open-source (GPL-3.0) fitness app by AOSSIE. It builds personalized 5–7 minute micro-workouts around a user's goals, fitness level, equipment, target body region and injuries, adapts after every session from feedback, and runs entirely offline with on-device AI and voice control. This site (https://move.aossie.org) is its landing page.
 
----
+- Download (Android): https://play.google.com/store/apps/details?id=org.aossie.move
+- App source code: https://github.com/AOSSIE-Org/MoveYourBody
+- Website source code: https://github.com/AOSSIE-Org/MoveYourBody-Website
+- Privacy policy: https://github.com/AOSSIE-Org/MoveYourBody/blob/main/PRIVACY_POLICY.md
 
-## 📂 Project Architecture
+## Key features
 
-- **`src/app/[locale]/`**: Localized dynamic route group. All pages and layouts live here.
-- **`src/app/sitemap.ts`**: Dynamically generates localized sitemaps.
-- **`public/brand/`**: Repository branding folder containing the logo, favicon, and brand specifications (`Brand.md`).
-- **`src/config/languages.ts`**: Supported languages configuration list.
-- **`src/i18n/`**: Configurations for translation lookups and custom navigation helpers.
-- **`src/messages/`**: Directory containing translation catalogs (e.g., `en.json`, `hi.json`).
-- **`src/components/`**: Location for reusable, localized UI components.
-- **`src/proxy.ts`**: Next.js 16 Proxy Middleware for automatic locale routing.
+- **Personalized workouts:** sessions built from goals, fitness level, preferences, available equipment and target body region.
+- **Short sessions:** 5–7 minute micro-workouts of three exercises.
+- **Smart, adaptive recommendations:** exercises chosen by goals, difficulty, intensity, equipment, safety constraints and history; post-workout feedback gradually tunes future sessions.
+- **Variety engine:** recently performed exercises are avoided to keep workouts fresh.
+- **Safety-aware:** exercises that could aggravate a stated injury are never recommended.
+- **Offline, on-device AI:** a quantized all-MiniLM-L6-v2 sentence transformer runs through ONNX Runtime; user data stays on the device in SQLite.
+- **Voice control:** start, pause, skip or repeat hands-free, with spoken confirmations.
+- **Also:** daily reminders, progress statistics and charts, custom workouts, exercise search, and body-focus sessions.
 
----
+## App tech stack
 
-## 🎨 Theme & Style System
-- Tailwind CSS v4 is configured with a class-based dark mode selector in `src/app/[locale]/globals.css`.
-- Semantic CSS variables (e.g. `--background`, `--foreground`) are bound to Tailwind variables in the `@theme` block.
-- **Guideline:** Avoid inline `dark:*` utility styles. Use semantic token classes like `bg-background-primary` and `text-foreground-primary`.
-
----
-
-## 🌐 Dynamic Localization
-- All navigation must import `Link`, `useRouter`, or `usePathname` from local `src/i18n/navigation.ts`.
-- Page and Layout props `params` are Promises in Next.js 15/16 and must be awaited:
-  ```typescript
-  const { locale } = await params;
-  ```
+Flutter, Riverpod, GoRouter, SQLite (sqflite), Shared Preferences, ONNX Runtime, Dart WordPiece tokenizer, Lottie, FL Chart.
 
 ---
 
-## 📦 Build Commands
-- **Build:** `npm run build`
+## Website architecture (for AI coding agents)
+
+Next.js 16 (App Router, Turbopack) with React 19 and Tailwind CSS v4, exported as static HTML for GitHub Pages. Internationalized with **next-intl** (English `en`, Hindi `hi`) and themed with **next-themes** (dark default, light available).
+
+- **`src/app/[locale]/`**: localized layout and landing page. All pages and layouts live here.
+- **`src/components/sections/`**: landing sections (Manifesto, Features, HowItWorks, Privacy, OpenSource, DownloadCta, SiteFooter).
+- **`src/components/hero/`**, **`src/components/dock/`**: hero stage and the floating dock navbar.
+- **`src/components/mockups/AppScreens.tsx`**: code-built phone screens in the app's own palette.
+- **`src/components/ui/`**: shared primitives (Reveal, CountUp, SpotlightGroup, PhoneFrame, SectionHeading, class recipes).
+- **`src/config/links.ts`**: site URL and every external link.
+- **`src/messages/`**: translation catalogs; `hi.json` must match the shape of `en.json` (checked by TypeScript).
+- **`public/brand/`**: logo, favicon, icons, Open Graph image, hero image and `Brand.md` guidelines.
+
+### Rules
+
+- Use semantic token classes (`bg-background-primary`, `text-foreground-primary`, `text-highlight`); never inline `dark:*` utilities.
+- Import `Link`, `useRouter`, `usePathname` from `src/i18n/navigation.ts`, never from `next/link` or `next/navigation`.
+- Layout/page `params` are Promises: `const { locale } = await params;`
+- Every user-visible string goes in both `en.json` and `hi.json`.
+
+### Commands
+
 - **Develop:** `npm run dev`
+- **Lint:** `npm run lint`
+- **Build (static export to `out/`):** `npm run build`
+
 ---
 
-## 🤖 AI & Machine-Readable Interfaces
-- [API Reference](/api/): Available API endpoints
-- [OpenAPI Spec](/openapi.json): Machine-readable OpenAPI 3.0.1 specification
-- [AI Plugin Manifest](/.well-known/ai-plugin.json): OpenAI plugin manifest
-- [MCP Manifest](/.well-known/mcp.json): Model Context Protocol server configuration
-- [Project Info](/api/info.json): Structured project metadata endpoint
+## Machine-readable interfaces
+
+- [API Reference](/api/): available endpoints
+- [OpenAPI Spec](/openapi.json): OpenAPI 3.0.1 specification
+- [AI Plugin Manifest](/.well-known/ai-plugin.json): AI plugin manifest
+- [Project Info](/api/info.json): structured project metadata

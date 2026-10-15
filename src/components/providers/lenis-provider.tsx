@@ -31,7 +31,8 @@ export function LenisProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothWheel: true }}>
+    // `anchors` makes in-page #links glide instead of jumping; sections' scroll-margin clears the fixed dock
+    <ReactLenis root options={{ lerp: 0.1, smoothWheel: true, anchors: true }}>
       {children}
     </ReactLenis>
   );

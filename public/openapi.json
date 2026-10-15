@@ -1,14 +1,14 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "TODO: Project Name API (AOSSIE Webpage Starter)",
+    "title": "MoveYourBody API",
     "version": "1.0.0",
-    "description": "API specification for TODO: Project (AOSSIE webpage starter). Replace this description with your project's purpose."
+    "description": "Machine-readable metadata for MoveYourBody, the privacy-first, open-source fitness app by AOSSIE."
   },
   "servers": [
     {
-      "url": "https://TODO:project.aossie.org",
-      "description": "Production server (Replace with your actual production domain)"
+      "url": "https://move.aossie.org",
+      "description": "Production"
     }
   ],
   "paths": {
@@ -38,7 +38,7 @@
         "properties": {
           "name": {
             "type": "string",
-            "example": "TODO: Project Name (AOSSIE Webpage Starter)"
+            "example": "MoveYourBody"
           },
           "version": {
             "type": "string",
@@ -46,10 +46,29 @@
           },
           "description": {
             "type": "string",
-            "example": "TODO: Project Description (AOSSIE Webpage Starter)"
+            "example": "Privacy-first, open-source fitness app by AOSSIE with personalized micro-workouts and on-device AI."
           },
           "links": {
             "type": "object"
+          },
+          "license": {
+            "type": "string",
+            "example": "GPL-3.0"
+          },
+          "platforms": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "Android"
+            ]
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       }

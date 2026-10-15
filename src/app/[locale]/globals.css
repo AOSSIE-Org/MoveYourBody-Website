@@ -7,106 +7,469 @@
   /* Bind Tailwind v4 variables directly to semantic CSS variables */
   --color-background-primary: var(--background);
   --color-background-secondary: var(--background-secondary);
+  --color-background-tertiary: var(--background-tertiary);
+  --color-background-elevated: var(--background-elevated);
+
   --color-foreground-primary: var(--foreground);
   --color-foreground-secondary: var(--foreground-secondary);
   --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-faint: var(--foreground-faint);
+
   --color-border-default: var(--border);
-  
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+
+  --color-brand-green: #00843d;
+  --color-brand-gold: #ffcd00;
+
   --color-button-primary-bg: var(--button-primary-bg);
   --color-button-primary-text: var(--button-primary-text);
   --color-button-primary-border: var(--button-primary-border);
   --color-button-primary-hover-bg: var(--button-primary-hover-bg);
-  --color-button-primary-hover-border: var(--button-primary-hover-border);
 
   --color-card-bg: var(--card-bg);
-  --color-card-border: var(--card-border);
   --shadow-card: var(--card-shadow);
 
   --color-status-error-bg: var(--status-error-bg);
   --color-status-error-text: var(--status-error-text);
   --color-status-neutral-bg: var(--status-neutral-bg);
   --color-status-neutral-text: var(--status-neutral-text);
-  
+
   --color-icon-sun: var(--icon-sun);
   --color-icon-moon: var(--icon-moon);
-  --color-icon-system: var(--icon-system);
 
-  --font-sans: var(--font-inter), var(--font-devanagari), ui-sans-serif, system-ui, sans-serif;
+  --color-accent-green: var(--accent-green);
+  --color-accent-amber: var(--accent-amber);
+  --color-accent-sky: var(--accent-sky);
+  --color-accent-purple: var(--accent-purple);
+  --color-accent-green-tint: var(--color-emerald-500);
+  --color-accent-amber-tint: var(--color-amber-500);
+  --color-accent-purple-tint: var(--color-purple-500);
+  --color-accent-purple-solid: var(--color-purple-600);
+  --color-accent-purple-solid-hover: var(--color-purple-700);
+
+  --color-dock-bg: var(--dock-bg);
+  --color-dock-border: var(--dock-border);
+  --color-dock-item-bg: var(--dock-item-bg);
+  --color-dock-item-hover-bg: var(--dock-item-hover-bg);
+  --color-dock-item-hover-text: var(--dock-item-hover-text);
+
+  --color-stat-icon: var(--stat-icon);
+  --color-stat-title: var(--stat-title);
+  --color-stat-value: var(--stat-value);
+
+  --color-band-bg: var(--band-bg);
+  --color-band-border: var(--band-border);
+  --color-band-text: var(--band-text);
+  --color-band-dot: var(--band-dot);
+
+  --color-ghost: var(--ghost);
+  --color-rule: var(--rule);
+  --color-scroll: var(--scroll);
+  --color-scroll-track: var(--scroll-track);
+  --color-scroll-thumb: var(--scroll-thumb);
+
+  --shadow-dock: 0 7px 20px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+  --shadow-dock-hover: 0 11px 27px rgba(0, 132, 61, 0.25), 0 0 14px rgba(255, 205, 0, 0.18), inset 0 1px rgba(255, 255, 255, 0.15);
+  --shadow-dock-item: 0 5px 13px rgba(0, 0, 0, 0.2);
+  --shadow-dock-item-active: 0 5px 14px rgba(0, 0, 0, 0.2);
+  --shadow-band-pill: 0 4px 14px rgba(0, 0, 0, 0.2);
+  --shadow-dot: 0 0 6px var(--band-dot);
+
+  --drop-shadow-mark: 0 2px 7px rgba(0, 0, 0, 0.3);
+  --drop-shadow-glow: 0 0 7px rgba(255, 205, 0, 0.6);
+
+  --ease-smooth: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  --ease-fluid: cubic-bezier(0.19, 1, 0.22, 1);
+
+  --font-sans: var(--font-lexend), var(--font-devanagari), ui-sans-serif, system-ui, sans-serif;
+
+  /* Landing sections: headline accent, card surfaces and the pointer spotlight */
+  --color-highlight: var(--highlight);
+  --color-highlight-soft: var(--highlight-soft);
+  --color-highlight-contrast: var(--highlight-contrast);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-section-alt: var(--section-alt);
+  --color-spotlight: var(--spotlight);
+  --color-danger: var(--danger);
+
+  /* The app's own palette (brand/brand.md in the app repo). Phone mockups always render in the
+     app's dark theme, so these are fixed rather than theme-switched. */
+  --color-app-bg: #0a1a0a;
+  --color-app-surface: #122412;
+  --color-app-card: #1a2e1a;
+  --color-app-card-selected: #254025;
+  --color-app-primary: #4caf50;
+  --color-app-primary-light: #81c784;
+  --color-app-text-secondary: #b0bec5;
+  --color-app-border: #2e7d32;
+  --color-app-divider: #1b3a1b;
+  --color-app-warning: #fdba74;
+  --color-app-info: #7dd3fc;
+  --color-figure-hair: #5b4636;
+  --color-figure-shirt: #f08a3c;
+  --color-figure-skin: #e8b89a;
+  --color-figure-shoe: #2b2b2b;
+  --color-phone-bezel: #0b0f0b;
+
+  --shadow-phone: 0 30px 60px -20px rgba(0, 0, 0, 0.55), 0 18px 36px -18px rgba(0, 132, 61, 0.35);
 }
 
-/* --- LIGHT MODE (Default) --- */
-:root {
-  --background: #f5f5f5;
-  --background-secondary: #ffffff;
-  
-  --foreground: #1c1c1c;
-  --foreground-secondary: #121212;
-  --foreground-muted: #4d4d4d;
-  
-  --border: #e2e2e7;
-  
-  --button-primary-bg: #121212;
-  --button-primary-text: #ffffff;
-  --button-primary-border: #121212;
-  --button-primary-hover-bg: #2d2d2d;
-  --button-primary-hover-border: #2d2d2d;
+@theme inline {
+  /* Entrance sequence: one easing, per-element delay from --d. `inline` writes these values into
+     each utility, so var(--d) resolves on the element rather than on :root. Keyframes move the
+     standalone translate/scale properties, so they never fight the parallax transform, and fill
+     only backwards so hover states take over once an element has arrived. */
+  --animate-trickle: trickle 2.6s var(--ease-smooth) infinite;
+  --animate-enter-up: enter-up 1.4s var(--ease-fluid) var(--d, 0ms) backwards;
+  --animate-enter-soft: enter-soft 1.4s var(--ease-fluid) var(--d, 0ms) backwards;
+  --animate-enter-rise: enter-rise 1.8s var(--ease-fluid) var(--d, 0ms) backwards;
+  --animate-enter-down: enter-down 1.2s var(--ease-fluid) var(--d, 0ms) backwards;
+  --animate-enter-grow: enter-grow 1.6s var(--ease-fluid) var(--d, 0ms) backwards;
+  --animate-enter-fade: enter-fade 2s var(--ease-smooth) var(--d, 0ms) backwards;
 
-  --card-bg: rgba(255, 255, 255, 0.85);
-  --card-border: #e2e2e7;
-  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  @keyframes trickle {
+    0% { transform: translateY(-105%); opacity: 0; }
+    22%, 78% { opacity: 1; }
+    100% { transform: translateY(255%); opacity: 0; }
+  }
+  /* Text: drifts up and comes into focus */
+  @keyframes enter-up {
+    from { opacity: 0; translate: 0 1.25rem; filter: blur(8px); }
+  }
+  /* Elements that carry their own filter (or an iframe): no blur */
+  @keyframes enter-soft {
+    from { opacity: 0; translate: 0 1rem; scale: 0.96; }
+  }
+  /* The hero model: a longer, weightier rise */
+  @keyframes enter-rise {
+    from { opacity: 0; translate: 0 3rem; scale: 0.94; }
+  }
+  /* Navbar pieces settle down from above */
+  @keyframes enter-down {
+    from { opacity: 0; translate: 0 -0.75rem; }
+  }
+  /* The band's glow line draws outward from the centre */
+  @keyframes enter-grow {
+    from { opacity: 0; scale: 0 1; }
+  }
+  @keyframes enter-fade {
+    from { opacity: 0; }
+  }
+
+  /* Ambient loops for the landing sections. All move transform/opacity only, so they stay on the compositor. */
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+  --animate-marquee-reverse: marquee var(--marquee-duration, 40s) linear infinite reverse;
+  --animate-orbit: orbit var(--orbit-duration, 36s) linear infinite;
+  --animate-orbit-counter: orbit var(--orbit-duration, 36s) linear infinite reverse;
+  --animate-wave: wave 1.1s var(--ease-smooth) var(--d, 0ms) infinite alternate;
+  --animate-float: float 6s var(--ease-smooth) var(--d, 0ms) infinite alternate;
+  --animate-ping-soft: ping-soft 2.4s var(--ease-smooth) var(--d, 0ms) infinite;
+  --animate-deck: deck 7.5s var(--ease-fluid) var(--d, 0ms) infinite;
+  --animate-ring: ring 7s linear infinite;
+  --animate-progress: progress 7s linear infinite;
+  --animate-list-in: list-in 0.7s var(--ease-fluid) var(--d, 0ms) backwards;
+
+  @keyframes marquee {
+    to { translate: -50% 0; }
+  }
+  @keyframes orbit {
+    to { rotate: 360deg; }
+  }
+  @keyframes wave {
+    from { scale: 1 0.25; }
+    to { scale: 1 1; }
+  }
+  @keyframes float {
+    from { translate: 0 -0.4rem; }
+    to { translate: 0 0.4rem; }
+  }
+  @keyframes ping-soft {
+    0% { scale: 1; opacity: 0.55; }
+    80%, 100% { scale: 2.2; opacity: 0; }
+  }
+  /* Three cards take turns at the front of the variety deck */
+  @keyframes deck {
+    0%, 28% { translate: 0 0; scale: 1; opacity: 1; z-index: 3; }
+    33%, 61% { translate: 0 1.5rem; scale: 0.9; opacity: 0.45; z-index: 1; }
+    66%, 95% { translate: 0 0.75rem; scale: 0.95; opacity: 0.75; z-index: 2; }
+    100% { translate: 0 0; scale: 1; opacity: 1; z-index: 3; }
+  }
+  @keyframes ring {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: var(--ring-length, 283); }
+  }
+  @keyframes progress {
+    from { scale: 0 1; }
+  }
+  @keyframes list-in {
+    from { opacity: 0; translate: 0 0.5rem; }
+  }
+}
+
+/* Cursor-following glow for cards; --mx/--my are written by the Spotlight group */
+@utility spotlight {
+  background-image: radial-gradient(
+    32rem circle at var(--mx, 50%) var(--my, -30%),
+    var(--spotlight),
+    transparent 42%
+  );
+}
+
+/* Hide the scrollbar on horizontal rails without disabling scrolling */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Soft fade at both ends of a marquee rail */
+@utility mask-fade-x {
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+/* Scroll-in reveal. Reveal sets data-reveal="in" once the element enters the viewport; without JS or
+   with reduced motion, content is simply visible. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    transition:
+      opacity 0.9s var(--ease-smooth) var(--d, 0ms),
+      translate 1.1s var(--ease-fluid) var(--d, 0ms);
+  }
+  [data-reveal="pending"] {
+    opacity: 0;
+    translate: 0 1.75rem;
+  }
+}
+
+/* Manifesto: each word brightens as the paragraph scrolls through the viewport. Only where the browser
+   supports scroll-driven animations; everywhere else the words are fully opaque. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-words {
+      view-timeline-name: --words;
+    }
+    .scroll-words .word {
+      animation: word-lit linear both;
+      animation-timeline: --words;
+    }
+  }
+}
+@keyframes word-lit {
+  from { opacity: 0.16; }
+  to { opacity: 1; }
+}
+
+/* Pointer parallax driven by --px/--py (set on the hero) and per-element --pd depth / --pr rotation */
+@utility parallax {
+  transform: perspective(1400px)
+    translate3d(calc(var(--px, 0) * var(--pd, 0) * -0.6px), calc(var(--py, 0) * var(--pd, 0) * -0.38px), 0)
+    rotateY(calc(var(--px, 0) * var(--pr, 0) * 0.6deg))
+    rotateX(calc(var(--py, 0) * var(--pr, 0) * -0.42deg));
+}
+
+/* Clips the liquid-metal button wrapper to its pill, trimming the shader's bloom padding */
+@utility clip-pill {
+  clip-path: inset(26.7% 14.6% 9.6% round 15% / 23%);
+}
+
+/* --- LIGHT MODE --- */
+:root {
+  --background: #f4f7f2;
+  --background-secondary: #ffffff;
+  --background-tertiary: #eef2eb;
+  --background-elevated: rgba(238, 241, 231, 0.94);
+
+  --foreground: #1b1e18;
+  --foreground-secondary: rgba(27, 30, 24, 0.85);
+  --foreground-muted: rgba(27, 30, 24, 0.65);
+  --foreground-faint: rgba(27, 30, 24, 0.4);
+
+  --border: rgba(0, 132, 61, 0.18);
+  --border-subtle: rgba(0, 132, 61, 0.1);
+  --border-strong: rgba(0, 132, 61, 0.4);
+
+  --button-primary-bg: #00843d;
+  --button-primary-text: #ffffff;
+  --button-primary-border: #00843d;
+  --button-primary-hover-bg: #02542d;
+
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 12px rgba(0, 132, 61, 0.08);
 
   --status-error-bg: #fee2e2;
   --status-error-text: #dc2626;
-  --status-neutral-bg: #f4f4f5;
-  --status-neutral-text: #52525b;
+  --status-neutral-bg: #eef2eb;
+  --status-neutral-text: #3b4237;
 
-  --icon-sun: #f59e0b;
-  --icon-moon: #818cf8;
-  --icon-system: #71717a;
+  --icon-sun: var(--color-amber-600);
+  --icon-moon: var(--color-emerald-300);
+
+  --accent-green: var(--color-emerald-600);
+  --accent-amber: var(--color-amber-600);
+  --accent-sky: var(--color-sky-600);
+  --accent-purple: var(--color-purple-600);
+
+  --dock-bg: rgba(238, 241, 231, 0.92);
+  --dock-border: rgba(0, 132, 61, 0.22);
+  --dock-item-bg: rgba(0, 132, 61, 0.07);
+  --dock-item-hover-bg: rgba(0, 132, 61, 0.12);
+  --dock-item-hover-text: #00843d;
+
+  --stat-icon: #00843d;
+  --stat-title: #3b4237;
+  --stat-value: #00843d;
+
+  --band-bg: rgba(238, 241, 231, 0.95);
+  --band-border: rgba(0, 132, 61, 0.28);
+  --band-text: #00843d;
+  --band-dot: #00843d;
+  --band-glow: linear-gradient(90deg, transparent 0%, rgba(0, 132, 61, 0.6) 25%, rgba(0, 132, 61, 0.9) 50%, rgba(0, 132, 61, 0.6) 75%, transparent 100%);
+
+  --ghost: rgba(0, 132, 61, 0.16);
+  --rule: rgba(0, 132, 61, 0.16);
+  --guide-line: linear-gradient(180deg, transparent 0%, var(--rule) 12%, var(--rule) 78%, transparent 100%);
+
+  --scroll: rgba(27, 30, 24, 0.75);
+  --scroll-track: rgba(0, 132, 61, 0.2);
+  --scroll-thumb: #00843d;
+
+  --hero-gradient:
+    radial-gradient(65% 55% at 18% 82%, rgba(255, 205, 0, 0.32) 0%, rgba(0, 132, 61, 0.18) 48%, rgba(244, 247, 242, 0) 80%),
+    radial-gradient(75% 65% at 88% 12%, rgba(0, 132, 61, 0.22) 0%, rgba(2, 84, 45, 0.12) 55%, rgba(244, 247, 242, 0) 85%);
+  --hero-overlay:
+    radial-gradient(72% 48% at 50% 115%, rgba(255, 205, 0, 0.35) 0%, rgba(0, 132, 61, 0.2) 42%, rgba(2, 84, 45, 0.06) 75%, transparent 90%),
+    linear-gradient(180deg, rgba(0, 132, 61, 0) 50%, rgba(255, 205, 0, 0.1) 80%, rgba(0, 132, 61, 0.18) 100%);
+
+  --model-shadow: drop-shadow(0 11px 27px rgba(0, 132, 61, 0.25));
+  --pill-shadow: drop-shadow(0 7px 18px rgba(0, 132, 61, 0.25));
+
+  --highlight: #00843d;
+  --highlight-soft: rgba(0, 132, 61, 0.1);
+  --highlight-contrast: #ffffff;
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-raised: #ffffff;
+  --section-alt: #ebf1e7;
+  --spotlight: rgba(0, 132, 61, 0.1);
+  --danger: #c2410c;
+
+  --cta-gradient:
+    radial-gradient(60% 90% at 12% 100%, rgba(255, 205, 0, 0.35) 0%, rgba(255, 205, 0, 0) 70%),
+    radial-gradient(70% 90% at 95% 0%, rgba(0, 132, 61, 0.28) 0%, rgba(0, 132, 61, 0) 70%),
+    linear-gradient(135deg, #f8fbf4 0%, #e3ede0 100%);
 }
 
 /* --- DARK MODE --- */
 .dark {
-  --background: #101010;
-  --background-secondary: #000000;
-  
-  --foreground: #d3d3d3;
-  --foreground-secondary: #b4b4b4;
-  --foreground-muted: #7f8188;
-  
-  --border: #1e1e24;
-  
-  --button-primary-bg: #ffffff;
-  --button-primary-text: #101010;
-  --button-primary-border: transparent;
-  --button-primary-hover-bg: #e4e4e7;
-  --button-primary-hover-border: #e4e4e7;
+  --background: #0d1f15;
+  --background-secondary: #14281c;
+  --background-tertiary: #1b3325;
+  --background-elevated: rgba(34, 40, 31, 0.85);
 
-  --card-bg: rgba(22, 22, 22, 0.85);
-  --card-border: #1e1e24;
+  --foreground: #ffffff;
+  --foreground-secondary: rgba(255, 255, 255, 0.85);
+  --foreground-muted: rgba(255, 255, 255, 0.65);
+  --foreground-faint: rgba(255, 255, 255, 0.45);
+
+  --border: rgba(255, 255, 255, 0.15);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 205, 0, 0.45);
+
+  --button-primary-bg: #ffcd00;
+  --button-primary-text: #0d1f15;
+  --button-primary-border: transparent;
+  --button-primary-hover-bg: #e6b800;
+
+  --card-bg: #1e261d;
   --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 
   --status-error-bg: rgba(69, 10, 10, 0.5);
   --status-error-text: #f87171;
-  --status-neutral-bg: #27272a;
-  --status-neutral-text: #a1a1aa;
+  --status-neutral-bg: rgba(255, 255, 255, 0.06);
+  --status-neutral-text: rgba(255, 255, 255, 0.65);
 
-  --icon-sun: #fbbf24;
-  --icon-moon: #818cf8;
-  --icon-system: #a1a1aa;
+  --accent-green: var(--color-emerald-400);
+  --accent-amber: var(--color-amber-400);
+  --accent-sky: var(--color-sky-400);
+  --accent-purple: var(--color-purple-400);
+
+  --dock-bg: rgba(34, 40, 31, 0.85);
+  --dock-border: rgba(255, 255, 255, 0.15);
+  --dock-item-bg: rgba(255, 255, 255, 0.06);
+  --dock-item-hover-bg: rgba(255, 205, 0, 0.14);
+  --dock-item-hover-text: #ffffff;
+
+  --stat-icon: #ffcd00;
+  --stat-title: rgba(255, 255, 255, 0.82);
+  --stat-value: #ffffff;
+
+  --band-bg: rgba(30, 36, 28, 0.85);
+  --band-border: rgba(255, 255, 255, 0.14);
+  --band-text: rgba(255, 255, 255, 0.82);
+  --band-dot: #ffcd00;
+  --band-glow: linear-gradient(90deg, transparent 0%, rgba(0, 132, 61, 0.4) 20%, rgba(255, 205, 0, 0.7) 50%, rgba(0, 132, 61, 0.4) 80%, transparent 100%);
+
+  --ghost: rgba(255, 255, 255, 0.16);
+  --rule: rgba(255, 255, 255, 0.08);
+
+  --scroll: rgba(255, 255, 255, 0.75);
+  --scroll-track: rgba(255, 255, 255, 0.18);
+  --scroll-thumb: rgba(255, 255, 255, 0.85);
+
+  --hero-gradient:
+    radial-gradient(65% 55% at 18% 82%, rgba(255, 205, 0, 0.25) 0%, rgba(0, 132, 61, 0.16) 48%, rgba(13, 31, 21, 0) 80%),
+    radial-gradient(75% 65% at 88% 12%, rgba(0, 132, 61, 0.32) 0%, rgba(2, 84, 45, 0.24) 55%, rgba(13, 31, 21, 0) 85%);
+  --hero-overlay:
+    radial-gradient(72% 48% at 50% 115%, rgba(255, 205, 0, 0.28) 0%, rgba(0, 132, 61, 0.2) 42%, rgba(2, 84, 45, 0.1) 75%, transparent 90%),
+    linear-gradient(180deg, rgba(0, 132, 61, 0) 50%, rgba(255, 205, 0, 0.06) 80%, rgba(0, 132, 61, 0.15) 100%);
+
+  --model-shadow: drop-shadow(0 11px 27px rgba(0, 0, 0, 0.4));
+  --pill-shadow: none;
+
+  --highlight: #ffcd00;
+  --highlight-soft: rgba(255, 205, 0, 0.1);
+  --highlight-contrast: #0d1f15;
+  --surface: rgba(255, 255, 255, 0.035);
+  --surface-raised: #14281c;
+  --section-alt: #0a1911;
+  --spotlight: rgba(255, 205, 0, 0.08);
+  --danger: #fb923c;
+
+  --cta-gradient:
+    radial-gradient(60% 90% at 12% 100%, rgba(255, 205, 0, 0.22) 0%, rgba(255, 205, 0, 0) 70%),
+    radial-gradient(70% 90% at 95% 0%, rgba(0, 132, 61, 0.45) 0%, rgba(0, 132, 61, 0) 70%),
+    linear-gradient(135deg, #10281a 0%, #0b1a11 100%);
 }
-
 
 /* --- GLOBAL STYLES --- */
-html,
-body {
-  max-width: 100%;
-  overflow-x: hidden;
+@layer base {
+  /* Desktop scales fluidly with the viewport, like the original design: 16px at 1440px wide,
+     capped at 1900px. Every rem-based utility (type, spacing, sizes) follows. Media queries
+     still use the browser's default rem, so breakpoints are unaffected. */
+  @media (width >= 64rem) {
+    html {
+      font-size: clamp(14px, 100vw / 90, 21.11px);
+    }
+  }
+
+  ::selection {
+    background: var(--highlight);
+    color: var(--highlight-contrast);
+  }
+
+  /* Hindi pages lead with Devanagari, including for Latin glyphs */
+  html:lang(hi) {
+    --font-sans: var(--font-devanagari), var(--font-lexend), ui-sans-serif, system-ui, sans-serif;
+  }
 }
 
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
-  transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+/* Devanagari joins letters with a headline (shirorekha) and conjuncts; letter-spacing breaks both
+   apart. Unlayered so it outranks the tracking-* utilities on Hindi pages. */
+html:lang(hi) [class*="tracking-"] {
+  letter-spacing: normal;
 }

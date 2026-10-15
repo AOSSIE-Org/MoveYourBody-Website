@@ -1,52 +1,70 @@
 import type { Metadata } from 'next';
-import { messagesMap, defaultMessages, Messages } from './messages';
+import { SITE_URL } from '@/config/links';
+import { messagesMap, defaultMessages } from './messages';
+import { routing } from './routing';
 
-export async function generateLocaleMetadata(
-  locale: string,
-  namespace: 'Home' = 'Home'
-): Promise<Metadata> {
-  const messages = (messagesMap[locale] || defaultMessages) as Messages;
-  const meta = messages[namespace] || defaultMessages.Home;
+const ogLocales: Record<string, string> = { en: 'en_US', hi: 'hi_IN' };
 
-  const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://TODO:project.aossie.org';
-  const siteUrl = rawSiteUrl.replace(/\/$/, '');
-  const localeUrl = `${siteUrl}/${locale}`;
+export function generateLocaleMetadata(locale: string): Metadata {
+  const { metaTitle, metaDescription } = (messagesMap[locale] ?? defaultMessages).Home;
+  const localeUrl = `${SITE_URL}/${locale}`;
+  const ogImage = {
+    url: `${SITE_URL}/brand/og-image.jpg`,
+    width: 1200,
+    height: 630,
+    alt: metaTitle,
+  };
 
   return {
-    title: meta.metaTitle,
-    description: meta.metaDescription,
+    metadataBase: new URL(SITE_URL),
+    title: metaTitle,
+    description: metaDescription,
+    applicationName: 'MoveYourBody',
+    keywords: [
+      'MoveYourBody',
+      'AOSSIE',
+      'fitness app',
+      'micro-workouts',
+      'on-device AI',
+      'offline workout app',
+      'privacy-first fitness',
+      'voice-controlled workouts',
+      'open source',
+    ],
+    authors: [{ name: 'AOSSIE', url: 'https://aossie.org' }],
     icons: {
-      icon: '/brand/icons/favicon.ico',
+      icon: [
+        { url: '/favicon.ico', sizes: '48x48' },
+        { url: '/brand/icons/MoveYourBody_logo.svg', type: 'image/svg+xml' },
+      ],
+      apple: '/brand/icons/apple-touch-icon.png',
     },
     alternates: {
       canonical: localeUrl,
       languages: {
-        en: `${siteUrl}/en`,
-        hi: `${siteUrl}/hi`,
+        ...Object.fromEntries(routing.locales.map((l) => [l, `${SITE_URL}/${l}`])),
+        'x-default': `${SITE_URL}/${routing.defaultLocale}`,
       },
     },
     openGraph: {
-      title: meta.metaTitle,
-      description: meta.metaDescription,
+      title: metaTitle,
+      description: metaDescription,
       url: localeUrl,
-      siteName: 'AOSSIE',
-      images: [
-        {
-          url: `${siteUrl}/brand/icons/aossie_logo.svg`,
-          width: 500,
-          height: 500,
-          alt: 'AOSSIE Logo',
-        },
-      ],
-      locale: locale === 'en' ? 'en_US' : 'hi_IN',
+      siteName: 'MoveYourBody',
+      images: [ogImage],
+      locale: ogLocales[locale] ?? 'en_US',
+      alternateLocale: routing.locales.filter((l) => l !== locale).map((l) => ogLocales[l] ?? l),
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: meta.metaTitle,
-      description: meta.metaDescription,
-      images: [`${siteUrl}/brand/icons/aossie_logo.svg`],
+      site: '@aossie_org',
+      title: metaTitle,
+      description: metaDescription,
+      images: [ogImage.url],
+    },
+    other: {
+      'google-play-app': 'app-id=org.aossie.move',
     },
   };
 }
-
