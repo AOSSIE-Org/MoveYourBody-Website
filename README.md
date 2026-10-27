@@ -46,7 +46,7 @@ The official website of **MoveYourBody**, live at **[move.aossie.org](https://mo
 MoveYourBody is AOSSIE's privacy-first, open-source fitness app. It builds personalized 5–7 minute micro-workouts around your goals, equipment and injuries, adapts after every session from your feedback, and runs entirely offline with on-device AI and hands-free voice control. The app itself is developed in [AOSSIE-Org/MoveYourBody](https://github.com/AOSSIE-Org/MoveYourBody); this repository contains its landing page.
 
 <!-- Project Badges -->
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/AOSSIE-Org/MoveYourBody-Website/badge)](https://securityscorecards.dev/viewer/?url=github.com/AOSSIE-Org/MoveYourBody-Website)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/AOSSIE-Org/MoveYourBody-Website/badge)](https://scorecard.dev/viewer/?uri=github.com/AOSSIE-Org/MoveYourBody-Website)
 [![NHS Agentic Readiness Score](https://nothumansearch.ai/badge/move.aossie.org.svg)](https://nothumansearch.ai/site/move.aossie.org)
 
 ---
@@ -91,7 +91,8 @@ What the landing page presents, taken from the app repository and its contributo
    - [x] Uses React Server Components by default, introducing Client Components (`"use client"`) only when interactivity or client hooks are required.
    - [x] Is deployed to GitHub Pages via a GitHub Workflow (`.github/workflows/nextjs.yml`).
    - [x] Has automated CI build and lint validation (`.github/workflows/ci.yml`).
-   - [x] Has automated unit and component test suite with Vitest and React Testing Library (`npm test`).
+   - [x] Has automated unit, component and property tests (Vitest, React Testing Library, fast-check) with a 90% coverage gate in CI (`npm run test:coverage`).
+   - [x] Has OpenSSF Scorecard analysis (`.github/workflows/scorecard.yml`) and a security policy (`SECURITY.md`).
    - [x] Has CodeRabbit automated AI code review (`.coderabbit.yml`).
    - [x] Has open-source legal compliance (`DCO.md`, `COPYRIGHT.md`, `MAINTAINERS.md`).
    - [x] Supports light and dark themes, English and Hindi, and reduced-motion preferences.
@@ -205,7 +206,8 @@ Open [http://localhost:3000](http://localhost:3000). You are redirected to `/en`
 ### Running Tests
 
 ```bash
-npm test
+npm test                # run the Vitest suite once
+npm run test:coverage   # with coverage; fails below 90% (same as CI)
 ```
 
 ### Building for Production (Static Export)
@@ -231,11 +233,11 @@ This writes the static site to `./out`. Pushing to `main` builds and deploys it 
 We welcome contributions of all kinds! Please read [`CONTRIBUTING.md`](CONTRIBUTING.md), then:
 
 1. Fork the repository and create your feature branch (`git checkout -b feature/AmazingFeature`).
-2. Commit your changes (`git commit -m 'feat: add some AmazingFeature'`).
-3. Ensure code quality:
+2. Ensure code quality (CI runs the same checks):
    - `npm run lint`
-   - `npm test`
+   - `npm run test:coverage`
    - `npm run build`
+3. Commit your changes with a sign-off (`git commit -s -m 'feat: add some AmazingFeature'`).
 4. Push your branch (`git push origin feature/AmazingFeature`).
 5. Open a Pull Request for review.
 
