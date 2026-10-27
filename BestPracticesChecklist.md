@@ -22,8 +22,8 @@
 | Reporting          | 7   | 1   | 7 (8)              | 🟢     |
 | Quality            | 10  | 0   | 11                 | 🟡     |
 | Security           | 3   | 6   | 3 (9)              | 🟢     |
-| Analysis           | 5   | 2   | 5 (7)              | 🟢     |
-| **Total**          | **34** | **14** | **35 (49)**    | **97.1%** |
+| Analysis           | 4   | 2   | 5 (7)              | 🟡     |
+| **Total**          | **33** | **14** | **35 (49)**    | **94.3%** |
 
 *N/A items are excluded from the denominator.*
 
@@ -217,8 +217,8 @@
 
 ### Dynamic Code Analysis
 
-- [x] 🔵 **dynamic_analysis** — Dynamic analysis applied before major releases. *(SUGGESTED)*
-  - *Tool used:* Lighthouse (performance, accessibility, best practices, SEO) on the deployed site.
+- [ ] 🔵 **dynamic_analysis** — Dynamic analysis applied before major releases. *(SUGGESTED)*
+  - *Not met yet:* no fuzzer or input-varying scanner runs before deploys, and branch coverage above 80% is only measured on the scoped logic modules (see `test_most`). Lighthouse audits are run on the deployed site, but they do not vary inputs.
 
 - [x] 🔵 **dynamic_analysis_enable_assertions** — Dynamic analysis runs with assertions enabled. *(SUGGESTED)*
   - *Note:* Vitest executes hooks and modules in jsdom with React's development build, so runtime invariant checks are active.

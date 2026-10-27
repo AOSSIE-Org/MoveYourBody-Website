@@ -17,7 +17,7 @@ If you have questions, feedback, or want to discuss ideas before building:
 ## 🛠️ Getting Started
 
 ### 1. Prerequisites
-- **Node.js**: `v22.0.0` or higher
+- **Node.js**: `22.22.2+` (22.x), `24.15.0+` (24.x) or `26+`, matching `engines` in `package.json` (required by jsdom in the test suite)
 - **npm**: `v9` or higher
 
 ### 2. Fork & Clone
