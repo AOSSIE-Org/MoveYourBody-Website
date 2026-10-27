@@ -49,13 +49,14 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
    Run lint, tests, and build before submitting (the build also type-checks translation keys):
    ```bash
    npm run lint
-   npm test
+   npm run test:coverage   # Vitest; CI fails below 90% coverage
    npm run build
    ```
-3. **Check both themes and both languages:** switch dark/light and English/हिन्दी in the dock, and try a phone-width viewport.
-4. **Commit Messages:**
+3. **Tests are required for new logic:** changes to `src/config/`, `src/i18n/`, `src/app/sitemap.ts`, `src/app/manifest.ts`, hooks or class-recipe helpers must add or update tests in `tests/`. Prefer [fast-check](https://fast-check.dev) property tests for functions with many input combinations.
+4. **Check both themes and both languages:** switch dark/light and English/हिन्दी in the dock, and try a phone-width viewport.
+5. **Commit Messages:**
    Use clear, descriptive commit messages following Conventional Commits (e.g., `feat: add social share buttons`, `fix: header logo alignment`).
-5. **Developer Certificate of Origin (DCO):**
+6. **Developer Certificate of Origin (DCO):**
    Ensure your commits adhere to our [`DCO.md`](DCO.md).
 
 ---

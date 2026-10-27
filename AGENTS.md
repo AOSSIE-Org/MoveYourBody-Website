@@ -13,9 +13,9 @@ The landing page for **MoveYourBody** ([move.aossie.org](https://move.aossie.org
 
 ## 🛠️ Stack & Commands
 
-- **Stack:** Next.js 16.2.11 App Router (Turbopack), React 19, Tailwind CSS v4, `next-intl` (i18n), `next-themes` (light/dark state manager), `lenis` (smooth scroll), `lucide-react` (icons). No animation library: motion is CSS plus small hooks.
+- **Stack:** Next.js 16.4.3 App Router (Turbopack), React 19, Tailwind CSS v4, `next-intl` (i18n), `next-themes` (light/dark state manager), `lenis` (smooth scroll), `lucide-react` (icons). No animation library: motion is CSS plus small hooks.
 - **Output:** static export (`output: "export"`) to `out/`, deployed to GitHub Pages with the custom domain in `public/CNAME`.
-- **Develop:** `npm run dev` · **Lint:** `npm run lint` · **Build:** `npm run build`
+- **Develop:** `npm run dev` · **Lint:** `npm run lint` · **Test:** `npm run test:coverage` (90% gate, enforced in CI) · **Build:** `npm run build`
 
 ---
 
@@ -70,4 +70,5 @@ Performance comes first; every effect must stay cheap.
 
 - **Config Alias Map:** Turbopack and Webpack alias resolvers map `"next-intl/config"` to our local request setup inside [`next.config.ts`](next.config.ts) using `createNextIntlPlugin("./src/i18n/request.ts")`.
 - **Branding Assets:** The official logo, favicon, icons, Open Graph image and style specifications reside inside [`public/brand/`](public/brand/) (see [`Brand.md`](public/brand/Brand.md)).
+- **Root route:** [`src/app/(root)/`](src/app/(root)/) serves the bare `/` with the default locale's metadata and a `<meta http-equiv="refresh">` to `/en`. Do not replace it with `redirect()`, which exports an empty error page.
 - **Machine-readable files:** `public/llms.txt`, `public/openapi.json`, `public/api/`, `public/.well-known/` and `src/app/api/info/route.ts` describe the project; keep them in sync when facts change.
