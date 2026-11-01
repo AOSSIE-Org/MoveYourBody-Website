@@ -590,7 +590,6 @@ export function createLiquidMetalRenderer(params: {
       rafId = requestAnimationFrame(frame);
       return;
     }
-    drawn = sig;
 
     const idle =
       !on.over &&
@@ -604,6 +603,8 @@ export function createLiquidMetalRenderer(params: {
       rafId = requestAnimationFrame(frame);
       return;
     }
+    // Only a frame that is actually drawn counts as drawn; a throttled one must not be skipped later
+    drawn = sig;
     lastDraw = now;
 
     for (let i = 0; i < uArr.length; i++) uArr[i] = P[PKEYS[i]];

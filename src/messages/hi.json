@@ -415,8 +415,10 @@
       "source": "ऐप का सोर्स कोड",
       "website": "वेबसाइट का सोर्स",
       "contributing": "योगदान",
-      "policy": "गोपनीयता नीति",
-      "license": "लाइसेंस (GPL-3.0)"
+      "license": "लाइसेंस (GPL-3.0)",
+      "privacy": "गोपनीयता नीति",
+      "terms": "सेवा की शर्तें",
+      "support": "समर्थन करें"
     },
     "social": {
       "discord": "Discord",
@@ -426,8 +428,34 @@
       "youtube": "YouTube",
       "github": "GitHub"
     },
-    "projectBy": "द्वारा प्रस्तुत परियोजना",
-    "copyright": "© {year} AOSSIE. MoveYourBody ऐप GPL-3.0 के तहत लाइसेंस प्राप्त है।"
+    "copyright": "© {year} AOSSIE · GPL-3.0"
+  },
+  "Legal": {
+    "englishOnly": "यह दस्तावेज़ केवल अंग्रेज़ी में उपलब्ध है।",
+    "privacy": {
+      "title": "गोपनीयता नीति",
+      "description": "MoveYourBody website आपकी जानकारी को कैसे संभालता है।"
+    },
+    "terms": {
+      "title": "सेवा की शर्तें",
+      "description": "MoveYourBody website के उपयोग की शर्तें।"
+    }
+  },
+  "Share": {
+    "trigger": "यह पेज शेयर करें",
+    "share": "शेयर करें",
+    "close": "बंद करें",
+    "copy": "कॉपी करें",
+    "copied": "कॉपी हो गया!",
+    "copyFailed": "विफल",
+    "urlLabel": "शेयर करने का URL"
+  },
+  "Support": {
+    "title": "MoveYourBody का समर्थन करें",
+    "description": "MoveYourBody को निःशुल्क और ओपन सोर्स बनाए रखने में मदद करें।",
+    "madeBy": "द्वारा बनाया गया प्रोजेक्ट",
+    "supportedBy": "समर्थक",
+    "aossieDescription": "AOSSIE एक ऑस्ट्रेलियाई गैर-लाभकारी संगठन है जो ओपन-सोर्स प्रोजेक्ट्स का समर्थन करता है और उन्हें एक साथ लाता है।"
   },
   "Error": {
     "title": "कुछ गलत हो गया",

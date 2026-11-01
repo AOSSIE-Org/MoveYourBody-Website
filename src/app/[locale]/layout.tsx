@@ -7,7 +7,7 @@ import { generateLocaleMetadata } from "@/i18n/metadata";
 import { messagesMap } from "@/i18n/messages";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { LenisProvider } from "@/components/providers/lenis-provider";
-import { AOSSIE_URL, PLAY_STORE_URL, REPO_URL, SITE_URL } from "@/config/links";
+import { AOSSIE_URL, GPL_LICENSE_TEXT_URL, PLAY_STORE_URL, REPO_URL, SITE_URL } from "@/config/links";
 import "./globals.css";
 
 const lexend = localFont({
@@ -90,7 +90,7 @@ export default async function RootLayout({
         downloadUrl: PLAY_STORE_URL,
         installUrl: PLAY_STORE_URL,
         image: `${SITE_URL}/brand/og-image.jpg`,
-        license: "https://www.gnu.org/licenses/gpl-3.0.html",
+        license: GPL_LICENSE_TEXT_URL,
         isAccessibleForFree: true,
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         codeRepository: REPO_URL,

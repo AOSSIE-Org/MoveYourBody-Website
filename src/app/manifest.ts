@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { PLAY_STORE_APP_ID, PLAY_STORE_URL } from '@/config/links';
 
 export const dynamic = 'force-static';
 
@@ -16,6 +17,6 @@ export default function manifest(): MetadataRoute.Manifest {
       { src: '/brand/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
       { src: '/brand/icons/MoveYourBody_logo.svg', sizes: 'any', type: 'image/svg+xml' },
     ],
-    related_applications: [{ platform: 'play', id: 'org.aossie.move', url: 'https://play.google.com/store/apps/details?id=org.aossie.move' }],
+    related_applications: [{ platform: 'play', id: PLAY_STORE_APP_ID, url: PLAY_STORE_URL }],
   };
 }
