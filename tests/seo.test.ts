@@ -4,6 +4,7 @@ import { messagesMap, defaultMessages } from '@/i18n/messages';
 import { routing } from '@/i18n/routing';
 import { SITE_URL } from '@/config/links';
 import manifest from '@/app/manifest';
+import { SUPPORT_PAGE_PATH } from '@/config/support';
 
 describe('generateLocaleMetadata', () => {
   it.each(routing.locales)('uses the %s catalog for title and description', (locale) => {
@@ -34,6 +35,28 @@ describe('generateLocaleMetadata', () => {
     expect(image.url).toMatch(/\.(png|jpe?g)$/);
     expect([image.width, image.height]).toEqual([1200, 630]);
     expect(meta.twitter).toMatchObject({ card: 'summary_large_image', images: [image.url] });
+  });
+
+  it('gives a subpage its own title, description, canonical and hreflang alternates', () => {
+    const meta = generateLocaleMetadata('hi', { path: '/privacy', title: 'Privacy', description: 'About privacy' });
+    expect(meta.title).toBe('Privacy');
+    expect(meta.description).toBe('About privacy');
+    expect(meta.openGraph).toMatchObject({ title: 'Privacy', url: `${SITE_URL}/hi/privacy` });
+    expect(meta.alternates?.canonical).toBe(`${SITE_URL}/hi/privacy`);
+    expect(meta.alternates?.languages).toEqual({
+      en: `${SITE_URL}/en/privacy`,
+      hi: `${SITE_URL}/hi/privacy`,
+      'x-default': `${SITE_URL}/en/privacy`,
+    });
+  });
+
+  it.each(routing.locales)('titles the %s support page from its catalog, with its own canonical', (locale) => {
+    const { title, description } = messagesMap[locale].Support;
+    const meta = generateLocaleMetadata(locale, { path: SUPPORT_PAGE_PATH, title, description });
+    expect(title).toContain('MoveYourBody');
+    expect(meta.title).toBe(title);
+    expect(meta.description).toBe(description);
+    expect(meta.alternates?.canonical).toBe(`${SITE_URL}/${locale}/support`);
   });
 
   it('lists the other locales as Open Graph alternates', () => {
