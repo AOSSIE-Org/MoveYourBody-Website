@@ -49,10 +49,10 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
    Run lint, tests, and build before submitting (the build also type-checks translation keys):
    ```bash
    npm run lint
-   npm run test:coverage   # Vitest; CI fails below 90% coverage
+   npm run test:coverage   # Vitest; CI fails below 90% coverage of the whole code base
    npm run build
    ```
-3. **Tests are required for new logic:** changes to `src/config/`, `src/i18n/`, `src/app/sitemap.ts`, `src/app/manifest.ts`, hooks or class-recipe helpers must add or update tests in `tests/`. Prefer [fast-check](https://fast-check.dev) property tests for functions with many input combinations.
+3. **Tests are required for new code:** coverage is measured on every file under `src/` (pages, layouts, components, hooks, config and i18n), so a new or changed page, component, hook or helper must add or update tests in `tests/`. Render components with React Testing Library inside the real catalogs (`renderWithIntl` in `tests/utils/intl.tsx`) and assert behaviour: text, links, ARIA state and interactions, in both languages where the text differs. Prefer [fast-check](https://fast-check.dev) property tests for functions and components with many input combinations. Only files with no runtime code (`*.d.ts`) are excluded; any new exclusion goes in `vitest.config.mts` with its reason.
 4. **Check both themes and both languages:** switch dark/light and English/हिन्दी in the dock, and try a phone-width viewport.
 5. **Commit Messages:**
    Use clear, descriptive commit messages following Conventional Commits (e.g., `feat: add social share buttons`, `fix: header logo alignment`).

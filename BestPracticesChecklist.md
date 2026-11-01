@@ -139,9 +139,9 @@
 - [x] 🔵 **test_invocation** — The test suite can be invoked in a standard way. *(SUGGESTED)*
   - *Evidence URL:* `npm test` / `npm run test:coverage` (https://github.com/AOSSIE-Org/MoveYourBody-Website/blob/main/package.json)
 
-- [ ] 🔵 **test_most** — The test suite covers most code branches and functionality. *(SUGGESTED)*
-  - *Evidence URL:* https://github.com/AOSSIE-Org/MoveYourBody-Website/blob/main/vitest.config.mts (90% line/branch/function thresholds, enforced in CI, on config, metadata, messages, sitemap, manifest and the shared UI helpers)
-  - *Not met yet:* the visual sections (hero, features, how it works, footer) have no automated tests, so the suite does not cover most of the site's functionality.
+- [x] 🔵 **test_most** — The test suite covers most code branches and functionality. *(SUGGESTED)*
+  - *Evidence URL:* https://github.com/AOSSIE-Org/MoveYourBody-Website/blob/main/vitest.config.mts (90% line, statement, function and branch thresholds, enforced in CI, measured on every file under `src/`; only `*.d.ts` type declarations are excluded)
+  - *Note:* every page, layout, section, dock control, hook and the WebGL button renderer has React Testing Library or unit tests in https://github.com/AOSSIE-Org/MoveYourBody-Website/tree/main/tests, plus fast-check property tests.
 
 ### New Functionality Testing Policy
 
@@ -217,8 +217,8 @@
 
 ### Dynamic Code Analysis
 
-- [ ] 🔵 **dynamic_analysis** — Dynamic analysis applied before major releases. *(SUGGESTED)*
-  - *Not met yet:* no fuzzer or input-varying scanner runs before deploys, and branch coverage above 80% is only measured on the scoped logic modules (see `test_most`). Lighthouse audits are run on the deployed site, but they do not vary inputs.
+- [x] 🔵 **dynamic_analysis** — Dynamic analysis applied before major releases. *(SUGGESTED)*
+  - *Evidence URL:* https://github.com/AOSSIE-Org/MoveYourBody-Website/blob/main/.github/workflows/ci.yml (`npm run test:coverage` on every PR and push to `main`: an automated suite with over 90% branch coverage of the whole code base, including fast-check property tests that vary inputs). Lighthouse audits are also run on the deployed site.
 
 - [x] 🔵 **dynamic_analysis_enable_assertions** — Dynamic analysis runs with assertions enabled. *(SUGGESTED)*
   - *Note:* Vitest executes hooks and modules in jsdom with React's development build, so runtime invariant checks are active.
