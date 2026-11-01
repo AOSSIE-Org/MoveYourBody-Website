@@ -5,7 +5,10 @@
 - Download (Android): https://play.google.com/store/apps/details?id=org.aossie.move
 - App source code: https://github.com/AOSSIE-Org/MoveYourBody
 - Website source code: https://github.com/AOSSIE-Org/MoveYourBody-Website
-- Privacy policy: https://github.com/AOSSIE-Org/MoveYourBody/blob/main/PRIVACY_POLICY.md
+- App privacy policy: https://github.com/AOSSIE-Org/MoveYourBody/blob/main/PRIVACY_POLICY.md
+- Website privacy policy: https://move.aossie.org/en/privacy
+- Terms of service: https://move.aossie.org/en/terms
+- Support the project: https://move.aossie.org/en/support
 
 ## Key features
 

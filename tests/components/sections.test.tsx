@@ -156,7 +156,7 @@ describe('DownloadCta', () => {
     const t = messages(locale).Download;
     renderWithIntl(<DownloadCta />, { locale });
     expect(document.getElementById('download-title')?.textContent).toBe(plain(t.title));
-    const play = screen.getByRole('link', { name: new RegExp(`^${t.playTop}\s*${t.playBottom}$`) });
+    const play = screen.getByRole('link', { name: new RegExp(`^${t.playTop}\\s*${t.playBottom}$`) });
     expect(play.getAttribute('href')).toBe(PLAY_STORE_URL);
     expect(screen.getByRole('link', { name: t.source }).getAttribute('href')).toBe(REPO_URL);
     expect(screen.getAllByRole('listitem').map((li) => li.textContent)).toEqual(Object.values(t.notes));

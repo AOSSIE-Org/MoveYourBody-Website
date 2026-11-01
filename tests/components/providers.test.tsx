@@ -1,4 +1,4 @@
-import { describe, it, expect, afterEach } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import ThemeToggle from '@/components/dock/ThemeToggle';
 import { LenisProvider } from '@/components/providers/lenis-provider';
@@ -72,11 +72,18 @@ describe('ThemeToggle', () => {
     expect(screen.getByRole('button', { name: messages('hi').ThemeToggle.toggleTheme })).toBeDefined();
   });
 
-  it('cancels its pending mount frame when unmounted', async () => {
-    const { unmount } = renderToggle();
-    unmount();
-    await act(nextFrame);
-    expect(screen.queryByRole('button')).toBeNull();
+  it('cancels its pending mount frame when unmounted', () => {
+    vi.useFakeTimers();
+    try {
+      const { unmount } = renderToggle();
+      // Let next-themes restore transitions (a 1ms timer), leaving only the toggle's frame (~16ms)
+      vi.advanceTimersByTime(1);
+      expect(vi.getTimerCount()).toBe(1);
+      unmount();
+      expect(vi.getTimerCount()).toBe(0);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 });
 

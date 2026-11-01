@@ -4,6 +4,9 @@ import { createLiquidMetalRenderer } from '@/components/ui/liquidMetalRenderer';
 import { MockIntersectionObserver, resize, setIntersecting, setReducedMotion } from './utils/browser';
 import { createFakeGL, setRect, type FakeGLOptions } from './utils/webgl';
 
+/** Renderers created by the current test, destroyed in afterEach so their listeners never leak into the next */
+const liveRenderers: (() => void)[] = [];
+
 function setup(options?: FakeGLOptions) {
   const { gl, record } = createFakeGL(options);
   const canvas = document.createElement('canvas');
@@ -15,6 +18,7 @@ function setup(options?: FakeGLOptions) {
   setRect(stage, { width: 300, height: 100 });
   setRect(button, { left: 50, top: 25, width: 200, height: 50 });
   const destroy = createLiquidMetalRenderer({ canvas, stage, button });
+  liveRenderers.push(destroy);
   /** Draw calls that composite onto the canvas, i.e. finished frames */
   const framesDrawn = () => record.draws.filter((fbo) => fbo === null).length;
   return { gl, record, canvas, stage, button, destroy, framesDrawn };
@@ -29,6 +33,7 @@ beforeEach(() => {
   vi.advanceTimersByTime(10_000);
 });
 afterEach(() => {
+  liveRenderers.splice(0).forEach((destroy) => destroy());
   vi.useRealTimers();
   document.body.innerHTML = '';
   Object.defineProperty(window, 'devicePixelRatio', { value: 1, configurable: true });

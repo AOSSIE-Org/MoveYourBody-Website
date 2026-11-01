@@ -2,7 +2,7 @@ import { describe, it, expect, afterEach } from 'vitest';
 import { act, fireEvent, screen, within } from '@testing-library/react';
 import DockNavbar from '@/components/dock/DockNavbar';
 import { PLAY_STORE_URL } from '@/config/links';
-import { setIntersecting } from '../utils/browser';
+import { observersOf, setIntersecting } from '../utils/browser';
 import { messages, renderWithIntl } from '../utils/intl';
 
 const sectionIds = ['features', 'how-it-works', 'privacy', 'open-source'];
@@ -139,8 +139,9 @@ describe('DockNavbar', () => {
   it('stops watching the sections when unmounted', () => {
     mountSections();
     const { unmount } = renderWithIntl(<DockNavbar />);
+    const privacy = document.getElementById('privacy')!;
+    expect(observersOf(privacy)).toBeGreaterThan(0);
     unmount();
-    act(() => setIntersecting(document.getElementById('privacy')!));
-    expect(document.querySelectorAll('[aria-current]')).toHaveLength(0);
+    expect(observersOf(privacy)).toBe(0);
   });
 });

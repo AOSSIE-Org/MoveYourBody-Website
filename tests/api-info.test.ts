@@ -35,6 +35,16 @@ describe('GET /api/info', () => {
     expect(links.home).toBe(`${SITE_URL}/`);
   });
 
+  it('is described the same way by openapi.json, llms.txt and the AI plugin manifest', async () => {
+    const { links } = await info();
+    const read = (file: string) => fs.readFileSync(path.join(process.cwd(), 'public', file), 'utf8');
+    const linkSchema = JSON.parse(read('openapi.json')).components.schemas.ProjectInfo.properties.links;
+    expect(Object.keys(linkSchema.properties).sort()).toEqual(Object.keys(links).sort());
+    const llms = read('llms.txt');
+    for (const url of [links.privacy, links.terms, links.support]) expect(llms).toContain(url);
+    expect(JSON.parse(read('.well-known/ai-plugin.json')).legal_info_url).toBe(links.privacy);
+  });
+
   it('matches the hand-written public/api/info.json, so the two never drift', async () => {
     const published = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public/api/info.json'), 'utf8'));
     expect(await info()).toEqual(published);
