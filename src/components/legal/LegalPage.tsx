@@ -37,7 +37,8 @@ export default function LegalPage({ locale, page }: { locale: Locale; page: Lega
       <DockNavbar />
       <main id="main" className="flex-1 pt-32 pb-20 sm:pt-40 sm:pb-28">
         <div className={container}>
-          <article className="max-w-3xl">
+          {/* Centred reading column, as on the other AOSSIE landing pages */}
+          <article className="mx-auto max-w-3xl">
             {locale !== LEGAL_DOCUMENT_LOCALE && (
               <p className="mb-10 rounded-2xl border border-border-subtle bg-surface px-4 py-3 text-sm text-foreground-secondary">
                 {englishOnly}
