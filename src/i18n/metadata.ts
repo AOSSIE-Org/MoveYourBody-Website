@@ -1,13 +1,24 @@
 import type { Metadata } from 'next';
-import { SITE_URL } from '@/config/links';
+import { AOSSIE_URL, PLAY_STORE_APP_ID, SITE_URL } from '@/config/links';
 import { messagesMap, defaultMessages } from './messages';
 import { routing } from './routing';
 
 const ogLocales: Record<string, string> = { en: 'en_US', hi: 'hi_IN' };
 
-export function generateLocaleMetadata(locale: string): Metadata {
-  const { metaTitle, metaDescription } = (messagesMap[locale] ?? defaultMessages).Home;
-  const localeUrl = `${SITE_URL}/${locale}`;
+/** A page other than the home page: its path under each locale (e.g. `/privacy`) and its own title and description */
+export interface PageMetadata {
+  path: string;
+  title: string;
+  description: string;
+}
+
+/** Metadata for the home page, or for `page` when given; canonical and hreflang URLs carry the page path. */
+export function generateLocaleMetadata(locale: string, page?: PageMetadata): Metadata {
+  const home = (messagesMap[locale] ?? defaultMessages).Home;
+  const metaTitle = page?.title ?? home.metaTitle;
+  const metaDescription = page?.description ?? home.metaDescription;
+  const pagePath = page?.path ?? '';
+  const localeUrl = `${SITE_URL}/${locale}${pagePath}`;
   const ogImage = {
     url: `${SITE_URL}/brand/og-image.jpg`,
     width: 1200,
@@ -31,7 +42,7 @@ export function generateLocaleMetadata(locale: string): Metadata {
       'voice-controlled workouts',
       'open source',
     ],
-    authors: [{ name: 'AOSSIE', url: 'https://aossie.org' }],
+    authors: [{ name: 'AOSSIE', url: AOSSIE_URL }],
     icons: {
       icon: [
         { url: '/favicon.ico', sizes: '48x48' },
@@ -42,8 +53,8 @@ export function generateLocaleMetadata(locale: string): Metadata {
     alternates: {
       canonical: localeUrl,
       languages: {
-        ...Object.fromEntries(routing.locales.map((l) => [l, `${SITE_URL}/${l}`])),
-        'x-default': `${SITE_URL}/${routing.defaultLocale}`,
+        ...Object.fromEntries(routing.locales.map((l) => [l, `${SITE_URL}/${l}${pagePath}`])),
+        'x-default': `${SITE_URL}/${routing.defaultLocale}${pagePath}`,
       },
     },
     openGraph: {
@@ -64,7 +75,7 @@ export function generateLocaleMetadata(locale: string): Metadata {
       images: [ogImage.url],
     },
     other: {
-      'google-play-app': 'app-id=org.aossie.move',
+      'google-play-app': `app-id=${PLAY_STORE_APP_ID}`,
     },
   };
 }

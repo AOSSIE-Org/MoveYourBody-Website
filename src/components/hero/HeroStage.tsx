@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 import { container } from "@/components/container";
 import { highlight } from "@/components/ui/SectionHeading";
 import { LiquidMetalButton } from "@/components/ui/LiquidMetalButton";
-import { PLAY_STORE_URL } from "@/config/links";
+import { AOSSIE_URL, PLAY_STORE_URL } from "@/config/links";
 
 const guides = ["left-1/3 md:left-1/4", "left-2/3 md:left-[47%]", "hidden md:block md:left-[68%]"];
 
@@ -61,7 +61,7 @@ export default function HeroStage() {
             {t.rich("poweredBy", {
               link: (chunks) => (
                 <a
-                  href="https://aossie.org/"
+                  href={`${AOSSIE_URL}/`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-semibold text-stat-icon underline-offset-4 transition-colors hover:underline"

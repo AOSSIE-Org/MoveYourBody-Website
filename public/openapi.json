@@ -49,7 +49,49 @@
             "example": "Privacy-first, open-source fitness app by AOSSIE with personalized micro-workouts and on-device AI."
           },
           "links": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+              "home": {
+                "type": "string",
+                "format": "uri",
+                "example": "https://move.aossie.org/"
+              },
+              "playStore": {
+                "type": "string",
+                "format": "uri",
+                "example": "https://play.google.com/store/apps/details?id=org.aossie.move"
+              },
+              "docs": {
+                "type": "string",
+                "format": "uri",
+                "example": "https://move.aossie.org/api/"
+              },
+              "openapi": {
+                "type": "string",
+                "format": "uri",
+                "example": "https://move.aossie.org/openapi.json"
+              },
+              "llms": {
+                "type": "string",
+                "format": "uri",
+                "example": "https://move.aossie.org/llms.txt"
+              },
+              "privacy": {
+                "type": "string",
+                "format": "uri",
+                "example": "https://move.aossie.org/en/privacy"
+              },
+              "terms": {
+                "type": "string",
+                "format": "uri",
+                "example": "https://move.aossie.org/en/terms"
+              },
+              "support": {
+                "type": "string",
+                "format": "uri",
+                "example": "https://move.aossie.org/en/support"
+              }
+            }
           },
           "license": {
             "type": "string",

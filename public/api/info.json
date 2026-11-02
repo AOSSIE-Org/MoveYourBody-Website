@@ -26,6 +26,9 @@
     "playStore": "https://play.google.com/store/apps/details?id=org.aossie.move",
     "docs": "https://move.aossie.org/api/",
     "openapi": "https://move.aossie.org/openapi.json",
-    "llms": "https://move.aossie.org/llms.txt"
+    "llms": "https://move.aossie.org/llms.txt",
+    "privacy": "https://move.aossie.org/en/privacy",
+    "terms": "https://move.aossie.org/en/terms",
+    "support": "https://move.aossie.org/en/support"
   }
 }

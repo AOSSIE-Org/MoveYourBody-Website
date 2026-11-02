@@ -47,7 +47,7 @@ MoveYourBody is AOSSIE's privacy-first, open-source fitness app. It builds perso
 
 <!-- Project Badges -->
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/AOSSIE-Org/MoveYourBody-Website/badge)](https://scorecard.dev/viewer/?uri=github.com/AOSSIE-Org/MoveYourBody-Website)
-[![NHS Agentic Readiness Score](https://nothumansearch.ai/badge/move.aossie.org.svg)](https://nothumansearch.ai/site/move.aossie.org)
+[![NHS Agentic Readiness Score](https://nothumansearch.ai/badge/move.aossie.org.svg)](https://nothumansearch.ai/score?url=move.aossie.org)
 
 ---
 
@@ -91,7 +91,7 @@ What the landing page presents, taken from the app repository and its contributo
    - [x] Uses React Server Components by default, introducing Client Components (`"use client"`) only when interactivity or client hooks are required.
    - [x] Is deployed to GitHub Pages via a GitHub Workflow (`.github/workflows/nextjs.yml`).
    - [x] Has automated CI build and lint validation (`.github/workflows/ci.yml`).
-   - [x] Has automated unit, component and property tests (Vitest, React Testing Library, fast-check) with a 90% coverage gate in CI (`npm run test:coverage`).
+   - [x] Has automated unit, component and property tests (Vitest, React Testing Library, fast-check) with a 90% coverage gate in CI measured on the whole code base (`npm run test:coverage`).
    - [x] Has OpenSSF Scorecard analysis (`.github/workflows/scorecard.yml`) and a security policy (`SECURITY.md`).
    - [x] Has CodeRabbit automated AI code review (`.coderabbit.yml`).
    - [x] Has open-source legal compliance (`DCO.md`, `COPYRIGHT.md`, `MAINTAINERS.md`).
@@ -209,6 +209,8 @@ Open [http://localhost:3000](http://localhost:3000). You are redirected to `/en`
 npm test                # run the Vitest suite once
 npm run test:coverage   # with coverage; fails below 90% (same as CI)
 ```
+
+Coverage is measured on the whole code base: every file under `src/` (pages, layouts, components, hooks, config and i18n). The only exclusions are type declaration files (`*.d.ts`), listed with their reason in [`vitest.config.mts`](vitest.config.mts). Components are rendered with React Testing Library in jsdom inside the real English and Hindi catalogs; browser APIs jsdom lacks (IntersectionObserver, ResizeObserver, matchMedia, WebGL) and the Next.js router are mocked in [`tests/setup.ts`](tests/setup.ts) and [`tests/utils/`](tests/utils/). Property tests use [fast-check](https://fast-check.dev).
 
 ### Building for Production (Static Export)
 

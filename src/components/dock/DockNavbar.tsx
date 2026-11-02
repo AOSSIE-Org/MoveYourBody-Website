@@ -7,6 +7,7 @@ import LanguageSwitcher from "@/components/dock/LanguageSwitcher";
 import ThemeToggle from "@/components/dock/ThemeToggle";
 import { dockGlyph, dockItem, dockPanel } from "@/components/dock/dockItem";
 import { container } from "@/components/container";
+import { useSectionHref } from "@/components/ui/useSectionHref";
 import { PLAY_STORE_URL } from "@/config/links";
 
 const links = [
@@ -104,6 +105,7 @@ export default function DockNavbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const active = useActiveSection(sectionIds);
+  const sectionHref = useSectionHref();
 
   // Close the mobile menu on outside tap or Escape
   useEffect(() => {
@@ -144,7 +146,7 @@ export default function DockNavbar() {
           {links.map(({ id, icon }) => (
             <a
               key={id}
-              href={`#${anchor(id)}`}
+              href={sectionHref(anchor(id))}
               aria-current={active === id ? "location" : undefined}
               className={dockItem({ isActive: active === id })}
             >
@@ -211,7 +213,7 @@ export default function DockNavbar() {
             {links.map(({ id, icon }) => (
               <li key={id}>
                 <a
-                  href={`#${anchor(id)}`}
+                  href={sectionHref(anchor(id))}
                   onClick={() => setMenuOpen(false)}
                   aria-current={active === id ? "location" : undefined}
                   className={`flex h-11 w-full items-center gap-3 rounded-xl border px-3 text-xs font-medium tracking-widest uppercase transition-colors ${

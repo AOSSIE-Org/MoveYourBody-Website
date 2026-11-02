@@ -9,7 +9,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading, highlight } from "@/components/ui/SectionHeading";
 import { SpotlightGroup } from "@/components/ui/Spotlight";
 import { buttonPrimary, buttonSecondary, card, section } from "@/components/ui/styles";
-import { CONTRIBUTING_URL, REPO_URL, SOCIAL_LINKS } from "@/config/links";
+import { CONTRIBUTING_URL, CONTRIBUTORS_IMAGE_URL, GITHUB_URL, REPO_URL, SOCIAL_LINKS } from "@/config/links";
 
 /** From the app's pubspec and README tech stack */
 const stack = [
@@ -104,13 +104,13 @@ export default function OpenSource() {
               {team.map(({ name, github, role }) => (
                 <li key={github}>
                   <a
-                    href={`https://github.com/${github}`}
+                    href={`${GITHUB_URL}/${github}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group/member flex items-center gap-3 rounded-xl p-1.5 -m-1.5 transition-colors hover:bg-dock-item-hover-bg"
                   >
                     <Image
-                      src={`https://github.com/${github}.png?size=96`}
+                      src={`${GITHUB_URL}/${github}.png?size=96`}
                       alt=""
                       width={40}
                       height={40}
@@ -138,7 +138,7 @@ export default function OpenSource() {
               <h3 className="text-xl font-normal tracking-tight text-foreground-primary">{t("contributors")}</h3>
               <a href={`${REPO_URL}/graphs/contributors`} target="_blank" rel="noopener noreferrer" className="mt-4 block">
                 <Image
-                  src="https://contrib.rocks/image?repo=AOSSIE-Org/MoveYourBody&max=24"
+                  src={CONTRIBUTORS_IMAGE_URL}
                   alt={t("contributorsAlt")}
                   width={480}
                   height={64}

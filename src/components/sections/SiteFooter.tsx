@@ -2,23 +2,34 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Heart } from "lucide-react";
 import { container } from "@/components/container";
+import SiteShareButton from "@/components/sections/SiteShareButton";
 import { BrandIcon } from "@/components/ui/BrandIcons";
+import { useSectionHref } from "@/components/ui/useSectionHref";
+import { LEGAL_PAGES } from "@/config/legal";
 import {
   AOSSIE_URL,
   CONTRIBUTING_URL,
   LICENSE_URL,
   PLAY_STORE_URL,
-  PRIVACY_POLICY_URL,
   REPO_URL,
   SOCIAL_LINKS,
   STABILITY_NEXUS_URL,
   WEBSITE_REPO_URL,
   type SocialId,
 } from "@/config/links";
+import { SUPPORT_PAGE_PATH } from "@/config/support";
+import { Link } from "@/i18n/navigation";
 
 const linkClass =
   "text-sm text-foreground-muted transition-colors duration-200 hover:text-foreground-primary focus-visible:text-foreground-primary";
+
+/** The centred legal/support links in the bottom row: one step smaller than the column links */
+const bottomLinkClass = linkClass.replace("text-sm", "text-[0.8125rem]");
+
+/** AOSSIE / Stability Nexus credit: small logo before the name */
+const orgLinkClass = `${bottomLinkClass} inline-flex items-center gap-2`;
 
 const socials: SocialId[] = ["discord", "telegram", "x", "linkedin", "youtube", "github"];
 
@@ -45,6 +56,7 @@ export default function SiteFooter() {
   const t = useTranslations("Footer");
   const tNav = useTranslations("Navbar");
   const tCommon = useTranslations("Common");
+  const sectionHref = useSectionHref();
 
   return (
     <footer className="relative isolate overflow-hidden border-t border-border-default pt-20 pb-10">
@@ -62,9 +74,9 @@ export default function SiteFooter() {
         </div>
 
         <Column title={t("product")}>
-          <li><a href="#features" className={linkClass}>{tNav("features")}</a></li>
-          <li><a href="#how-it-works" className={linkClass}>{tNav("howItWorks")}</a></li>
-          <li><a href="#privacy" className={linkClass}>{tNav("privacy")}</a></li>
+          <li><a href={sectionHref("features")} className={linkClass}>{tNav("features")}</a></li>
+          <li><a href={sectionHref("how-it-works")} className={linkClass}>{tNav("howItWorks")}</a></li>
+          <li><a href={sectionHref("privacy")} className={linkClass}>{tNav("privacy")}</a></li>
           <External href={PLAY_STORE_URL}>{tNav("download")}</External>
         </Column>
 
@@ -72,7 +84,6 @@ export default function SiteFooter() {
           <External href={REPO_URL}>{t("links.source")}</External>
           <External href={WEBSITE_REPO_URL}>{t("links.website")}</External>
           <External href={CONTRIBUTING_URL}>{t("links.contributing")}</External>
-          <External href={PRIVACY_POLICY_URL}>{t("links.policy")}</External>
           <External href={LICENSE_URL}>{t("links.license")}</External>
         </Column>
 
@@ -88,21 +99,30 @@ export default function SiteFooter() {
         </Column>
       </div>
 
-      {/* Credits and copyright share one line, above the closing divider */}
+      {/* One quiet bottom bar under a divider: orgs, legal/support/share links, copyright.
+          From lg the equal side cells keep the links centred on the viewport. */}
       <div className={`${container} mt-16`}>
-        <div className="flex flex-col gap-6 border-b border-border-subtle pb-8 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-[0.625rem] font-semibold tracking-[0.2em] text-foreground-faint uppercase">{t("projectBy")}</p>
-            <div className="mt-3 flex items-center gap-5">
-              <a href={AOSSIE_URL} target="_blank" rel="noopener noreferrer" className="opacity-80 transition-opacity hover:opacity-100">
-                <Image src="/brand/icons/aossie_logo.svg" alt="AOSSIE" width={40} height={40} className="h-10 w-auto" />
-              </a>
-              <a href={STABILITY_NEXUS_URL} target="_blank" rel="noopener noreferrer" className="opacity-80 transition-opacity hover:opacity-100">
-                <Image src="/brand/icons/stability_nexus_logo.svg" alt="Stability Nexus" width={40} height={40} className="h-9 w-auto" />
-              </a>
-            </div>
+        <div className="flex flex-col items-center gap-5 border-t border-border-subtle pt-8 lg:grid lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-x-8">
+          <div className="flex items-center gap-5 lg:justify-self-start">
+            <a href={AOSSIE_URL} target="_blank" rel="noopener noreferrer" className={orgLinkClass}>
+              <Image src="/brand/icons/aossie_logo.svg" alt="" width={24} height={24} className="h-5 w-auto" />
+              AOSSIE
+            </a>
+            <a href={STABILITY_NEXUS_URL} target="_blank" rel="noopener noreferrer" className={orgLinkClass}>
+              <Image src="/brand/icons/stability_nexus_logo.svg" alt="" width={24} height={24} className="h-5 w-auto" />
+              Stability Nexus
+            </a>
           </div>
-          <p className="text-xs text-foreground-faint sm:text-right">{t("copyright", { year: new Date().getFullYear() })}</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <Link href={LEGAL_PAGES.privacy.path} className={bottomLinkClass}>{t("links.privacy")}</Link>
+            <Link href={LEGAL_PAGES.terms.path} className={bottomLinkClass}>{t("links.terms")}</Link>
+            <Link href={SUPPORT_PAGE_PATH} className={`${bottomLinkClass} inline-flex items-center gap-1.5`}>
+              <Heart aria-hidden="true" className="size-3.5" />
+              {t("links.support")}
+            </Link>
+            <SiteShareButton className={`${bottomLinkClass} inline-flex cursor-pointer items-center`} />
+          </div>
+          <p className="text-xs text-foreground-faint lg:justify-self-end">{t("copyright", { year: new Date().getFullYear() })}</p>
         </div>
       </div>
     </footer>

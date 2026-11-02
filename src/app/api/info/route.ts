@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
+import { LEGAL_PAGES } from "@/config/legal";
 import { PLAY_STORE_URL, REPO_URL, SITE_URL, WEBSITE_REPO_URL } from "@/config/links";
+import { SUPPORT_PAGE_PATH } from "@/config/support";
+import { routing } from "@/i18n/routing";
 
 export const dynamic = "force-static";
 
@@ -32,6 +35,9 @@ export async function GET() {
       docs: `${SITE_URL}/api/`,
       openapi: `${SITE_URL}/openapi.json`,
       llms: `${SITE_URL}/llms.txt`,
+      privacy: `${SITE_URL}/${routing.defaultLocale}${LEGAL_PAGES.privacy.path}`,
+      terms: `${SITE_URL}/${routing.defaultLocale}${LEGAL_PAGES.terms.path}`,
+      support: `${SITE_URL}/${routing.defaultLocale}${SUPPORT_PAGE_PATH}`,
     },
   });
 }
