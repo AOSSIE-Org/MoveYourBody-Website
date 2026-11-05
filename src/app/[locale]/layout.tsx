@@ -6,6 +6,7 @@ import { routing } from "@/i18n/routing";
 import { generateLocaleMetadata } from "@/i18n/metadata";
 import { messagesMap } from "@/i18n/messages";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { themeInitScript } from "@/components/providers/theme-script";
 import { LenisProvider } from "@/components/providers/lenis-provider";
 import { AOSSIE_URL, GPL_LICENSE_TEXT_URL, PLAY_STORE_URL, REPO_URL, SITE_URL } from "@/config/links";
 import "./globals.css";
@@ -106,6 +107,8 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        {/* Sets the theme class before <body> is parsed, so the first paint is never the wrong theme */}
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         {/* Without JS nothing flips [data-reveal] to "in", so show that content outright */}
         <noscript>
