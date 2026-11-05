@@ -17,6 +17,7 @@ import { PLAY_STORE_URL, REPO_URL, SITE_URL } from '@/config/links';
 import { messagesMap } from '@/i18n/messages';
 import { NOT_FOUND } from './utils/navigation';
 import { IntlWrapper, locales, messages, renderWithIntl, type TestLocale } from './utils/intl';
+import { themeInitScript } from '@/components/providers/theme-script';
 
 // Server-only next-intl APIs: record the request locale, and expose the request config callback itself
 vi.mock('next-intl/server', () => ({
@@ -96,6 +97,8 @@ describe('locale layout', () => {
     expect(doc.querySelector('[data-testid="probe"]')?.textContent).toBe(`${locale}:${messages(locale).Navbar.features}`);
     const skip = doc.querySelector('a[href="#main"]');
     expect(skip?.textContent).toBe(messages(locale).Common.skipToContent);
+    // The theme is applied first thing in <head>, before <body> exists, so the first paint is never the wrong theme
+    expect(doc.head.querySelector('script')?.textContent).toBe(themeInitScript);
   });
 
   it('describes the site, AOSSIE and the app as structured data', async () => {
